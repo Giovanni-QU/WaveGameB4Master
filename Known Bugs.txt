@@ -1,0 +1,29 @@
+Known Bugs:
+
+- Space bar supposed to skip levels for testing, issues with level skip on second part of game
+
+- the user can sometimes go below screen
+
+- The speed boost ability has issue going diagonally.
+
+- after images of the already passed enemies are outside of the "frame"
+
+Other Improvements:
+
+- Multiple places where Images are stored in the classpath... there only needs to be one directory of Images.
+
+-Add a way for the user to know there is or isn’t a game saved
+
+-Be able to force clear file from main menu
+
+-Have multiple saved games
+
+-Create a Mid-Boss for Easy Mode
+
+-Add more visual additions to improve polish/flair
+
+-Rebalance levels that are too easy or too hard
+
+-Music Tempo increased as the Player’s Health decreased
+
+- "Pickups" have not yet been implemented, which are small Images that appear randomly that give the user a temporary health increase, temporary speed boost, etc...

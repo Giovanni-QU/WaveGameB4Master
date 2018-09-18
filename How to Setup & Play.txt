@@ -1,0 +1,27 @@
+1. Unzip the file Wave_Game.zip
+
+2.) Open Eclipse. Press File -> Import -> General -> Exisiting Projects into Workspace -> Next
+
+3.) Next to "Select root directory", click "Browse..." and then select the folder that was contained in Wave_Game.zip (the folder is called "Wave Game").
+
+4.) Click "Finish" at the bottom.
+
+5.) Add socketio.jar to your build path.
+
+6.) Install Node.js via an online installer - this will also install NPM.  Also install MongoDB with an online installer.
+
+7.) Navigate to the root directory of the project via a command line, then enter the server folder and run "npm install."  You may need to run it with sudo privileges.  Your mileage may vary.
+
+8.) To start the database, run "mongod" from the command line.  Again, you may need sudo privileges.
+
+9.) To start the server, run "node main.js" from the command line from within the server directory.
+
+10.) Change the server address in Game.java to the IP address of the computer running the server and database.  By default the server listens for connections on port 3000, but this can be changed within main.js in the server folder.
+
+11.) Now that the project is imported and the db/server are running, double click the class called "Game" in eclipse to open that file.
+
+12.) This file contains the main method, so you can now click the green arrow at the top toolbar to start the game.
+
+13.) Information on how to play the game is located under the "Help" option in the game menu.
+
+P.S. If you don't intend to change any of the server files, I'll leave the server running at its current IP address for a few years, so just leaving it alone and skipping steps 6-10 is an option.
