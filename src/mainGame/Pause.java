@@ -176,24 +176,55 @@ public class Pause {
 			g.setFont(font);
 			g.drawString("MAIN", 900, 225);
 			
-			g.drawImage(buttonImg, 550, 400, 900, 200, null);
+			g.drawImage(buttonImg, 550, 350, 900, 200, null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
-			g.drawString("HELP", 900, 525);
+			g.drawString("HELP", 900, 475);
 			
-			g.drawImage(buttonImg, 550, 700, 900, 200, null);
+			g.drawImage(buttonImg, 550, 600, 900, 200, null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
 			
 			if(!gameSaved){
-				g.drawString("SAVE", 900, 825);
+				g.drawString("SAVE", 900, 725);
 			} else {
-				g.drawString("SAVED", 900, 825);
+				g.drawString("SAVED", 900, 725);
 			}
+			g.drawImage(buttonImg, 550, 850, 900, 200, null);
+			g.setColor(Color.WHITE);
+			g.setFont(font);
+			g.drawString("SHOP", 900, 975);
 			
-		} else if(game.gameState == STATE.PauseH1){
+		} 
+		if(game.gameState == STATE.PauseShop) {
+			Font font = new Font("impact", 1, 50);
+			Font font2 = new Font("impact", 1, 30);
+
+			g.setFont(font);
+			g.setColor(Color.white);
+			g.drawString("Help", 900, 70);
+
+			g.setFont(font2);
+			g.drawString("Waves: Simply use Arrow keys or WASD to move and avoid enemies.", 40, 300);
+			g.drawString("One you avoid them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 340);
+			
+			g.drawString("Press P to pause and un-pause", 40, 400);
+			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
+			
+			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
+
+			g.setFont(font2);
+			g.setColor(Color.white);
+			
+			g.drawRect(1600, 870, 200, 65);
+			g.drawString("Next", 1650, 910);
+			
+			g.drawRect(850, 870, 200, 64);
+			g.drawString("Main", 920, 910);
+		}
+		else if(game.gameState == STATE.PauseH1){
 			
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
