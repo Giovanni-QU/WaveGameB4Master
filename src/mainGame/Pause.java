@@ -207,14 +207,8 @@ public class Pause {
 			g.drawString("Help", 900, 70);
 
 			g.setFont(font2);
-			g.drawString("Waves: Simply use Arrow keys or WASD to move and avoid enemies.", 40, 300);
-			g.drawString("One you avoid them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 340);
+			g.drawString("IN GAME STORE UNDER CONSTRUCTION", 700, 700);
 			
-			g.drawString("Press P to pause and un-pause", 40, 400);
-			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
-			
-			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
-
 			g.setFont(font2);
 			g.setColor(Color.white);
 			
