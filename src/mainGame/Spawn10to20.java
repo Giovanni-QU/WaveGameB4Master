@@ -1,5 +1,8 @@
 package mainGame;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -58,6 +61,8 @@ public class Spawn10to20 {
 	}
 
 	public void tick() {
+		
+		handler.addPickupCoin(new PickupCoin(100, 100, ID.PickupCoin, "images/PickupCoin.PNG", handler, game ));
 		
 		if (game.getPlayerXInt() > (Game.WIDTH - Game.WIDTH/(6 + (2/3)) - 5)) {
 			randx = r.nextInt((Game.WIDTH - (Game.WIDTH - game.getPlayerXInt())) - Game.WIDTH/(6 + (2/3)));
@@ -533,5 +538,6 @@ public class Spawn10to20 {
 		tempCounter = 0;
 		
 	}
+
 	
 }

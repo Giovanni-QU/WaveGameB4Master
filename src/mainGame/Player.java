@@ -33,6 +33,7 @@ public class Player extends GameObject {
 	private SimpleMidi hitsoundMIDIPlayer;
 	private String hitsoundMIDIMusic = "HitsoundPart2.mid";
 	private boolean wasHit;
+	
 
 	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
 		super(x, y, id);
@@ -87,6 +88,19 @@ public class Player extends GameObject {
 	 */
 	public void collision() {
 		hud.updateScoreColor(Color.white);
+		if (!handler.pickups.isEmpty()) {
+		for (int j = 0; j < handler.pickups.size(); j++) {
+			 Pickup pickupObject = handler.pickups.get(j);
+			if (pickupObject.getId() == ID.PickupCoin) {
+				
+				if (this.getBounds().intersects(pickupObject.getBounds())) {
+					hud.setScore(500);
+					handler.removePickup(pickupObject);
+				}
+			}
+		}
+		}
+		
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
 			if (tempObject.getId() == ID.EnemyBasic || tempObject.getId() == ID.EnemyFast

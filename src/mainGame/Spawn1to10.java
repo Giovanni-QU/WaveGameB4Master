@@ -36,6 +36,7 @@ public class Spawn1to10 {
 	private int levelCounter = 1;
 	private LevelText welcomePit;
 	private LevelText welcome1;
+	private int randnumber;
 
 	public Spawn1to10(Handler handler, HUD hud, Game game) {
 		this.handler = handler;
@@ -54,6 +55,7 @@ public class Spawn1to10 {
 		index = r.nextInt(levelsRemaining);
 		levelNumber = 0;
 		levelCounter = 1;
+		
 	}
 
 	/**
@@ -69,6 +71,7 @@ public class Spawn1to10 {
 	 * Called once every 60 seconds by the Game loop
 	 */
 	public void tick() {
+		
 		if (game.getPlayerXInt() > (Game.WIDTH - Game.WIDTH/(6 + (2/3)) - 5)) {
 			randx = r.nextInt((Game.WIDTH - (Game.WIDTH - game.getPlayerXInt())) - Game.WIDTH/(6 + (2/3)));
 		} else if (game.getPlayerXInt() < Game.WIDTH/(6 + (2/3)) + 5) {
@@ -102,12 +105,14 @@ public class Spawn1to10 {
 			}
 			if (levelTimer <= 0) {// time to play!
 				handler.clearEnemies();
+				handler.clearCoins();
 				tempCounter = 0;
 				levelCounter = 1;
 				levelNumber = levels.get(index);
 			}
 
 		}
+		
 		/*
 		 * EVERY LEVEL WORKS THE SAME WAY
 		 * 
@@ -116,13 +121,19 @@ public class Spawn1to10 {
 		 * Please refer to this bit of code to understand how each level works
 		 * 
 		 */
+		randnumber = getRandomInteger(1, 325);
+		if (levelNumber <= 20 && randnumber == 10) {
+			handler.addPickup(new PickupCoin(getRandomInteger(2000, 1),
+			getRandomInteger(1000, 1), ID.PickupCoin, "images/PickupCoin.PNG", handler, game ));
+		}
 		else if (levelNumber == 1) {// this is level 1
+			
 			if (spawning) {
 				spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a second
 			}
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a second
 			if (tempCounter < 1) {// called only once, but sets the levelTimer to how long we want this level to run for
-
+				handler.clearCoins();
 				handler.addObject(welcome1 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 						ID.Levels1to10Text,handler));
 				levelTimer = 2000;// 2000 / 60 method calls a second = 33.33 seconds long
@@ -130,14 +141,17 @@ public class Spawn1to10 {
 			}
 			if (levelTimer == 1820){
 				handler.clearLevelText();
+				
 			}
 			if (spawnTimer == 0) {// time to spawn another enemy
+				
 				handler.addObject(
 						new EnemyBasic(randx, randy, 9, 9, ID.EnemyBasic, handler));// add them to the handler, which handles all game objects
 				spawnTimer = 100;// reset the spawn timer
 			}
 			if (levelTimer == 0) {// level is over
 				handler.clearEnemies();// clear the enemies
+				handler.clearCoins();
 				hud.setLevel(hud.getLevel() + 1);// Increment level number on HUD
 				levelCounter++;
 				spawnTimer = 40;
@@ -158,6 +172,7 @@ public class Spawn1to10 {
 			}
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome2 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome2);
@@ -202,6 +217,7 @@ public class Spawn1to10 {
 			}
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome3 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text, handler);
 				handler.addObject(welcome3);
@@ -234,6 +250,7 @@ public class Spawn1to10 {
 		} else if (levelNumber == 4) {
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome4 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome4);
@@ -266,6 +283,7 @@ public class Spawn1to10 {
 			}
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome5 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome5);
@@ -300,6 +318,7 @@ public class Spawn1to10 {
 			}
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome6 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome6);
@@ -335,6 +354,7 @@ public class Spawn1to10 {
 			}
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome7= new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome7);
@@ -379,6 +399,7 @@ public class Spawn1to10 {
 			}
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcome8 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome8);
@@ -410,13 +431,14 @@ public class Spawn1to10 {
 				}
 			}
 		} else if (levelNumber == 9) {
-
+			
 			LevelText welcome9 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 						ID.Levels1to10Text,handler);
 			handler.addObject(welcome9);
 
 			levelTimer--;
 			if (tempCounter < 1) {	
+				handler.clearCoins();
 				handler.addObject(new EnemyShooter(randx - 35, randy - 75, 200, 200,
 						-15, ID.EnemyShooter, this.handler));
 				levelTimer = 2500;
@@ -451,6 +473,7 @@ public class Spawn1to10 {
 
 			levelTimer--;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + levelCounter),
 						ID.Levels1to10Text,handler);
 					handler.addObject(welcome10);
@@ -485,6 +508,7 @@ public class Spawn1to10 {
 		else if (levelNumber == 101) {// arbitrary number for the boss
 			game.gameState = STATE.Boss;
 			if (tempCounter < 1) {
+				handler.clearCoins();
 				LevelText welcomePit = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Welcome to the Pit"),
 						ID.Levels1to10Text,handler);
 				handler.addObject(welcomePit);
@@ -532,6 +556,11 @@ public class Spawn1to10 {
 			levelNumber = levels.get(index);
 		}
 	}
+public static int getRandomInteger(int maximum, int minimum){
+		
+		return ((int) (Math.random()*(maximum - minimum))) + minimum;
+		
+		}
 	
 	public static void setSpawn(boolean x) {
 		spawning = x;

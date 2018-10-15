@@ -30,7 +30,7 @@ public class HUD {
 	private Color freezeColor = new Color(0, 255, 255, 25);
 	private Color regenColor = new Color(120, 255, 120);
 	private int extraLives = 0;
-
+	private double randnumber;
 	private String highScoreString = "";
 	
 	private ArrayList<String> leaderboard;
@@ -40,8 +40,11 @@ public class HUD {
 		health = Game.clamp(health, 0, healthMax);
 		greenValue = Game.clamp(greenValue, 0, 255);
 		greenValue = health * healthBarModifier;
-		score++;
-
+		
+		
+		
+		//each tick generate a random # and if that random number equals a specidied #, draw a coin
+		
 		if (regen) {// regenerates health if that ability has been unlocked
 			timer--;
 			if (timer == 0) {
@@ -59,6 +62,8 @@ public class HUD {
 	}
 
 	public void render(Graphics g) {
+		
+		
 		Font font = new Font("Amoebic", 1, 30);
 		g.setColor(Color.GRAY);
 		g.fillRect(15, 15, healthBarWidth, 64);
@@ -121,7 +126,7 @@ public class HUD {
 	}
 
 	public void setScore(int score) {
-		this.score = score;
+		this.score += score;
 	}
 	
 	public double getHealth(){

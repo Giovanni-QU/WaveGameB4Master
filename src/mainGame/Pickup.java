@@ -47,6 +47,7 @@ public abstract class Pickup {
 	public abstract void render(Graphics g);
 
 	public abstract Rectangle getBounds();
+		
 
 	public double getX() {
 		return x;
