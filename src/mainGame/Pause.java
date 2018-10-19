@@ -176,24 +176,49 @@ public class Pause {
 			g.setFont(font);
 			g.drawString("MAIN", 900, 225);
 			
-			g.drawImage(buttonImg, 550, 400, 900, 200, null);
+			g.drawImage(buttonImg, 550, 350, 900, 200, null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
-			g.drawString("HELP", 900, 525);
+			g.drawString("HELP", 900, 475);
 			
-			g.drawImage(buttonImg, 550, 700, 900, 200, null);
+			g.drawImage(buttonImg, 550, 600, 900, 200, null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
 			
 			if(!gameSaved){
-				g.drawString("SAVE", 900, 825);
+				g.drawString("SAVE", 900, 725);
 			} else {
-				g.drawString("SAVED", 900, 825);
+				g.drawString("SAVED", 900, 725);
 			}
+			g.drawImage(buttonImg, 550, 850, 900, 200, null);
+			g.setColor(Color.WHITE);
+			g.setFont(font);
+			g.drawString("SHOP", 900, 975);
 			
-		} else if(game.gameState == STATE.PauseH1){
+		} 
+		if(game.gameState == STATE.PauseShop) {
+			Font font = new Font("impact", 1, 50);
+			Font font2 = new Font("impact", 1, 30);
+
+			g.setFont(font);
+			g.setColor(Color.white);
+			g.drawString("Help", 900, 70);
+
+			g.setFont(font2);
+			g.drawString("IN GAME STORE UNDER CONSTRUCTION", 700, 700);
+			
+			g.setFont(font2);
+			g.setColor(Color.white);
+			
+			g.drawRect(1600, 870, 200, 65);
+			g.drawString("Next", 1650, 910);
+			
+			g.drawRect(850, 870, 200, 64);
+			g.drawString("Main", 920, 910);
+		}
+		else if(game.gameState == STATE.PauseH1){
 			
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
