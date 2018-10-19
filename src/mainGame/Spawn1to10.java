@@ -71,7 +71,7 @@ public class Spawn1to10 {
 	 * Called once every 60 seconds by the Game loop
 	 */
 	public void tick() {
-		
+		randnumber = getRandomInteger(1, 100);
 		if (game.getPlayerXInt() > (Game.WIDTH - Game.WIDTH/(6 + (2/3)) - 5)) {
 			randx = r.nextInt((Game.WIDTH - (Game.WIDTH - game.getPlayerXInt())) - Game.WIDTH/(6 + (2/3)));
 		} else if (game.getPlayerXInt() < Game.WIDTH/(6 + (2/3)) + 5) {
@@ -121,7 +121,6 @@ public class Spawn1to10 {
 		 * Please refer to this bit of code to understand how each level works
 		 * 
 		 */
-		randnumber = getRandomInteger(1, 325);
 		if (levelNumber <= 20 && randnumber == 10) {
 			handler.addPickup(new PickupCoin(getRandomInteger(2000, 1),
 			getRandomInteger(1000, 1), ID.PickupCoin, "images/PickupCoin.PNG", handler, game ));
