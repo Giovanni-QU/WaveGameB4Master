@@ -80,7 +80,7 @@ public class Game extends Canvas implements Runnable {
 	 * Used to switch between each of the screens shown to the user
 	 */
 	public enum STATE {
-		Menu, Help, Help2, Help3, Game, GameOver, GameWon, Upgrade, Boss, Pause, PauseH1, PauseH2, PauseH3, PauseShop, Leaderboard, GameWonEasy, GameEasy
+		Menu, Help, Help2, Help3, Game, GameOver, GameWon, Upgrade, Boss, Pause, PauseH1, PauseH2, PauseH3, Leaderboard, GameWonEasy, GameEasy
 	};
 
 	/**
@@ -463,7 +463,7 @@ public class Game extends Canvas implements Runnable {
 							// SCREEN
 
 		if (gameState == STATE.Pause || gameState == STATE.PauseH1 || gameState == STATE.PauseH2
-				|| gameState == STATE.PauseH3 || gameState == STATE.PauseShop) {
+				|| gameState == STATE.PauseH3) {
 			hud.render(g);
 			pause.render(g);
 		} else {
