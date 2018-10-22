@@ -166,8 +166,9 @@ public class Pause {
 	}
 	
 	public void render(Graphics g){
+		Font font;
 		if(game.gameState == STATE.Pause){
-			Font font = new Font("Amoebic", 1, 100);
+			font = new Font("Amoebic", 1, 100);
 			
 			
 			g.drawImage(buttonImg, 550, 100, 900, 200, null);
@@ -198,10 +199,18 @@ public class Pause {
 			g.drawString("SHOP", 900, 975);
 			
 		} 
-		if(game.gameState == STATE.PauseShop) {
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
 
+        Font font2;
+        if (this.game.gameState == STATE.PauseShop) {
+            font = new Font("impact", 1, 50);
+
+			g.setFont(font);
+			g.setColor(Color.white);
+            g.drawString("Shop under construction.", 900, 70);
+			
+        } else if (this.game.gameState == STATE.PauseH1) {
+            font = new Font("impact", 1, 50);
+            font2 = new Font("impact", 1, 30);
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("Help", 900, 70);
@@ -213,34 +222,7 @@ public class Pause {
 			g.drawString("Press P to pause and un-pause", 40, 400);
 			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
 			
-			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
-
-			g.setFont(font2);
-			g.setColor(Color.white);
-			
-			g.drawRect(1600, 870, 200, 65);
-			g.drawString("Next", 1650, 910);
-			
-			g.drawRect(850, 870, 200, 64);
-			g.drawString("Main", 920, 910);
-		}
-		else if(game.gameState == STATE.PauseH1){
-			
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
-
-			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Help", 900, 70);
-
-			g.setFont(font2);
-			g.drawString("Waves: Simply use Arrow keys or WASD to move and avoid enemies.", 40, 300);
-			g.drawString("One you avoid them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 340);
-			
-			g.drawString("Press P to pause and un-pause", 40, 400);
-			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
-			
-			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
+			g.drawString("Click Next to see Enemy and Boss Summaries", 40, 800);
 
 			g.setFont(font2);
 			g.setColor(Color.white);
@@ -251,8 +233,8 @@ public class Pause {
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 		} else if (game.gameState == STATE.PauseH2){
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			font = new Font("impact", 1, 50);
+			font2 = new Font("impact", 1, 30);
 			
 			g.setFont(font);
 			g.setColor(Color.white);
@@ -299,8 +281,8 @@ public class Pause {
 			g.drawImage(enemy4Img, 1100, 440, 250, 250, null);
 			g.drawImage(enemy5Img, 1500, 440, 300, 250, null);
 		} else if (game.gameState == STATE.PauseH3){
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			font = new Font("impact", 1, 50);
+			font2 = new Font("impact", 1, 30);
 			
 			g.setFont(font);
 			g.setColor(Color.white);
