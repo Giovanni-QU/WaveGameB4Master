@@ -91,7 +91,7 @@ public class Player extends GameObject {
 		if (!handler.pickups.isEmpty()) {
 		for (int j = 0; j < handler.pickups.size(); j++) {
 			 Pickup pickupObject = handler.pickups.get(j);
-			 System.out.println(j);
+			
 			if (pickupObject.getId() == ID.PickupCoin) {
 				
 				if (this.getBounds().intersects(pickupObject.getBounds())) {

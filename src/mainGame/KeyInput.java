@@ -67,6 +67,10 @@ public class KeyInput extends KeyAdapter {
 			
 			
 		}
+		if (key == 83 && e.isShiftDown()) {
+			upgrades.levelSkipAbility();
+			
+		}
 		
 		if (key == 76){
 			if (game.gameState == STATE.Menu){
