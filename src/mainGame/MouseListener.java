@@ -231,7 +231,9 @@ public class MouseListener extends MouseAdapter {
 					} 
 					game.gameState = STATE.Menu;
 				}
-				
+				if (mouseOver(mx, my, 550, 850, 900, 200)) {
+					game.gameState = STATE.PauseShop;
+				}
 				if(mouseOver(mx, my, 550, 400, 900, 200)){
 					game.gameState = STATE.PauseH1;
 				}
@@ -242,6 +244,7 @@ public class MouseListener extends MouseAdapter {
 					pause.reset();
 					
 				}
+				
 				
 				
 
