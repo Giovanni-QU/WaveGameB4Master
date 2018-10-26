@@ -197,28 +197,21 @@ public class Pause {
 			g.setFont(font);
 			g.drawString("SHOP", 900, 975);
 			
-		} 
+		}
 		if(game.gameState == STATE.PauseShop) {
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 900, 70);
+			g.drawString("Shop in progress", 900, 70);
 
-			g.setFont(font2);
-			g.drawString("IN GAME STORE UNDER CONSTRUCTION", 700, 700);
 			
-			g.setFont(font2);
-			g.setColor(Color.white);
-			
-			g.drawRect(1600, 870, 200, 65);
-			g.drawString("Next", 1650, 910);
 			
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 		}
-		else if(game.gameState == STATE.PauseH1){
+			else if(game.gameState == STATE.PauseH1){
 			
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);

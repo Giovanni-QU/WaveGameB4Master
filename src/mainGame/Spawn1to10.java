@@ -108,6 +108,7 @@ public class Spawn1to10 {
 				handler.clearCoins();
 				tempCounter = 0;
 				levelCounter = 1;
+				index = r.nextInt(levelsRemaining - 5);
 				levelNumber = levels.get(index);
 			}
 
@@ -135,12 +136,11 @@ public class Spawn1to10 {
 				handler.clearCoins();
 				handler.addObject(welcome1 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 						ID.Levels1to10Text,handler));
-				levelTimer = 2000;// 2000 / 60 method calls a second = 33.33 seconds long
+				levelTimer = 1000;// 2000 / 60 method calls a second = 33.33 seconds long
 				tempCounter++;// ensures the method is only called once
 			}
-			if (levelTimer == 1820){
+			if (levelTimer == 900){
 				handler.clearLevelText();
-				
 			}
 			if (spawnTimer == 0) {// time to spawn another enemy
 				
@@ -160,8 +160,18 @@ public class Spawn1to10 {
 				} else {// not time for the boss, just go to the next level
 					levels.remove(index);// remove the current level from being selected
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);// pick another level at random
-					levelNumber = levels.get(index);// set levelNumber to whatever index was randomly selected
+					if (levelsRemaining > 5) { //If there's still more than 5 levels remaining
+						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
+						index = r.nextInt(levelsRemaining - 5);// pick another level at random from the first half
+						levelNumber = levels.get(index);// set levelNumber to whatever index was randomly selected
+						System.out.println("And is changing to: " + levelNumber + "   " + index);
+					}
+					else { //If there's just 5 levels remaining
+						System.out.println("Level Number was: " + levelNumber + " And is going up!");
+						index = r.nextInt(levelsRemaining);// pick another level at random from the second half
+						levelNumber = levels.get(index);// set levelNumber to whatever index was randomly selected
+						System.out.println("And is changing to: " + levelNumber);
+					}
 				}
 			}
 		} else if (levelNumber == 2) {
@@ -175,10 +185,10 @@ public class Spawn1to10 {
 				LevelText welcome2 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome2);
-				levelTimer = 2000;
+				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (tempCounter	> 1820) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
 			}
 			if (spawnTimer == 30) {
@@ -206,8 +216,18 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
-					levelNumber = levels.get(index);
+					if (levelsRemaining > 5) {
+						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
+						index = r.nextInt(levelsRemaining - 5);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber + "   " + index);
+					}
+					else {
+						System.out.println("Level Number was: " + levelNumber + " And is going up!");
+						index = r.nextInt(levelsRemaining);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber);
+					}
 				}
 			}
 		} else if (levelNumber == 3) {
@@ -220,10 +240,10 @@ public class Spawn1to10 {
 				LevelText welcome3 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text, handler);
 				handler.addObject(welcome3);
-				levelTimer = 1500;
+				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (levelTimer == 1320) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
 			}
 			if (spawnTimer == 0) {
@@ -242,8 +262,18 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
-					levelNumber = levels.get(index);
+					if (levelsRemaining > 5) {
+						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
+						index = r.nextInt(levelsRemaining - 5);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber + "   " + index);
+					}
+					else {
+						System.out.println("Level Number was: " + levelNumber + " And is going up!");
+						index = r.nextInt(levelsRemaining);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber);
+					}
 				}
 			}
 		} else if (levelNumber == 4) {
@@ -253,12 +283,12 @@ public class Spawn1to10 {
 				LevelText welcome4 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome4);
-				levelTimer = 1300;
+				levelTimer = 1000;
 				tempCounter++;
 				handler.addObject(new EnemyShooter(randx - 35, randy - 75, 100, 100,
 						-20, ID.EnemyShooter, this.handler));
 			}
-			if (levelTimer == 1120) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
 			}
 			if (levelTimer == 0) {
@@ -272,8 +302,18 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
-					levelNumber = levels.get(index);
+					if (levelsRemaining > 5) {
+						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
+						index = r.nextInt(levelsRemaining - 5);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber + "   " + index);
+					}
+					else {
+						System.out.println("Level Number was: " + levelNumber + " And is going up!");
+						index = r.nextInt(levelsRemaining);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber);
+					}
 				}
 			}
 		} else if (levelNumber == 5) {
@@ -286,10 +326,10 @@ public class Spawn1to10 {
 				LevelText welcome5 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 					ID.Levels1to10Text,handler);
 				handler.addObject(welcome5);
-				levelTimer = 1400;
+				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (levelTimer == 1220) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
 			}
 			if (spawnTimer <= 0) {
@@ -307,8 +347,18 @@ public class Spawn1to10 {
 				} else {
 					levels.remove(index);
 					levelsRemaining--;
-					index = r.nextInt(levelsRemaining);
-					levelNumber = levels.get(index);
+					if (levelsRemaining > 5) {
+						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
+						index = r.nextInt(levelsRemaining - 5);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber + "   " + index);
+					}
+					else {
+						System.out.println("Level Number was: " + levelNumber + " And is going up!");
+						index = r.nextInt(levelsRemaining);
+						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber);
+					}
 				}
 			}
 		} else if (levelNumber == 6) {
@@ -318,18 +368,40 @@ public class Spawn1to10 {
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.clearCoins();
-				LevelText welcome6 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
-					ID.Levels1to10Text,handler);
-				handler.addObject(welcome6);
-				levelTimer = 1500;
+				if (levelsRemaining == 5) {
+					LevelText welcome6 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Let's step it up with Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome6);
+					}
+					else {
+					LevelText welcome6 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome6);
+					}
+				
+				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (levelTimer == 1320) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
 			}
 			if (spawnTimer == 0) {
 				handler.addObject(
 						new EnemyBasic(randx, randy, 7, 7, ID.EnemyBasic, handler));
+				spawnTimer = 50;
+			}
+			if (spawnTimer == 35) {
+				handler.addObject(
+						new EnemySweep(randx, randy, 25, 2, ID.EnemySweep, handler));
+			} else if (spawnTimer == 25) {
+				handler.addObject(
+						new EnemySweep(randx, randy, 25, -2, ID.EnemySweep, handler));
+			} else if (spawnTimer == 15) {
+				handler.addObject(
+						new EnemySweep(randx, randy, 25, 4, ID.EnemySweep, handler));
+			} else if (spawnTimer == 0) {
+				handler.addObject(
+						new EnemySweep(randx, randy, 25, -4, ID.EnemySweep, handler));
 				spawnTimer = 50;
 			}
 			if (levelTimer == 0) {
@@ -354,14 +426,26 @@ public class Spawn1to10 {
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.clearCoins();
-				LevelText welcome7= new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
-					ID.Levels1to10Text,handler);
-				handler.addObject(welcome7);
-				levelTimer = 1200;
+				if (levelsRemaining == 5) {
+					LevelText welcome7 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Let's step it up with Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome7);
+					}
+					else {
+					LevelText welcome7 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome7);
+					}
+				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (levelCounter == 1020) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
+			}
+			if (spawnTimer == 0) {
+				handler.addObject(
+						new EnemySmart(randx, randy, -8, ID.EnemySmart, handler));
+				spawnTimer = 100;
 			}
 			if (spawnTimer == 35) {
 				handler.addObject(
@@ -399,19 +483,26 @@ public class Spawn1to10 {
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.clearCoins();
-				LevelText welcome8 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
-					ID.Levels1to10Text,handler);
-				handler.addObject(welcome8);
+				if (levelsRemaining == 5) {
+					LevelText welcome8 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Let's step it up with Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome8);
+					}
+					else {
+					LevelText welcome8 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome8);
+					}
 				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (levelTimer == 820) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
-				
 			}
 			if (spawnTimer == 0) {
 				handler.addObject(
-						new EnemySmart(randx, randy, -3, ID.EnemySmart, handler));
+						new EnemySmart(randx, randy, -8, ID.EnemySmart, handler));
+				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
 				spawnTimer = 50;
 			}
 			if (levelTimer == 0) {
@@ -430,21 +521,41 @@ public class Spawn1to10 {
 				}
 			}
 		} else if (levelNumber == 9) {
+			if (spawning) {
+				spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a second
+			}
 			
-			LevelText welcome9 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
-						ID.Levels1to10Text,handler);
-			handler.addObject(welcome9);
+			//This code is inconsistent with the code
+			//that loads the rest of the enemies
+//			LevelText welcome9 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+//						ID.Levels1to10Text,handler);
+//			handler.addObject(welcome9);
 
 			levelTimer--;
 			if (tempCounter < 1) {	
 				handler.clearCoins();
+				if (levelsRemaining == 5) {
+					LevelText welcome9 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Let's step it up with Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome9);
+					}
+					else {
+					LevelText welcome9 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome9);
+					}
+				levelTimer = 1000;
+				tempCounter++;
 				handler.addObject(new EnemyShooter(randx - 35, randy - 75, 200, 200,
 						-15, ID.EnemyShooter, this.handler));
-				levelTimer = 2500;
-				tempCounter++;
 			}
-			if (levelTimer == 2320) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
+			}
+			if (spawnTimer == 0) {
+				handler.addObject(
+						new EnemyBasic(randx, randy, 7, 7, ID.EnemyBasic, handler));
+				spawnTimer = 50;
 			}
 			if (levelTimer == 0) {
 				handler.clearEnemies();
@@ -466,25 +577,34 @@ public class Spawn1to10 {
 				spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a second
 			}
 
-			LevelText welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
-						ID.Levels1to10Text,handler);
-			handler.addObject(welcome10);
+			//This code is inconsistent with the code
+			//that loads the rest of the enemies
+//			LevelText welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+//						ID.Levels1to10Text,handler);
+//			handler.addObject(welcome10);
 
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.clearCoins();
-				welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + levelCounter),
+				if (levelsRemaining == 5) {
+					LevelText welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Let's step it up with Level " + hud.getLevel()),
 						ID.Levels1to10Text,handler);
 					handler.addObject(welcome10);
-				levelTimer = 1400;
+					}
+					else {
+					LevelText welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
+						ID.Levels1to10Text,handler);
+					handler.addObject(welcome10);
+					}
+				levelTimer = 1000;
 				tempCounter++;
 			}
-			if (levelCounter == 1220) {
+			if (levelTimer == 900){
 				handler.clearLevelText();
 			}
-			if (spawnTimer <= 0) {
-				handler.addObject(new EnemyBurst(-200, 200, 40, 40, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
-				spawnTimer = 90;
+			if (spawnTimer == 0) {
+				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
+				spawnTimer = 50;
 			}
 
 			if (levelTimer == 0) {
@@ -551,8 +671,14 @@ public class Spawn1to10 {
 			System.out.println(levelsRemaining);
 			levelCounter++;
 			tempCounter = 0;
-			index = r.nextInt(levelsRemaining);
-			levelNumber = levels.get(index);
+			if (levelsRemaining > 5) {
+				index = r.nextInt(levelsRemaining - 5);
+				levelNumber = levels.get(index);
+			}
+			else {
+				index = r.nextInt(levelsRemaining);
+				levelNumber = levels.get(index);
+			}
 		}
 	}
 public static int getRandomInteger(int maximum, int minimum){

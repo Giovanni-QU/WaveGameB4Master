@@ -148,7 +148,6 @@ public class MouseListener extends MouseAdapter {
 				game.gameState = STATE.Leaderboard;
 			}
 			
-			
 			// Credits
 			else if (mouseOver(mx, my, 80, 435, 850, 250)) {
 				JOptionPane.showMessageDialog(game,
@@ -245,6 +244,7 @@ public class MouseListener extends MouseAdapter {
 					pause.reset();
 					
 				}
+				
 				
 				
 

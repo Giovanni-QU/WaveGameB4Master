@@ -295,8 +295,5 @@ public class Menu {
 			g.drawString("Main", 920, 910);
 
 		}
-		/*else if(game.gameState == STATE.PauseShop) {
-			game.upgradeScreen.render(g);
-		}*/
 	}
 }

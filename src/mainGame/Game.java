@@ -116,7 +116,7 @@ public class Game extends Canvas implements Runnable {
 		menuMIDIPlayer = new Midi();
 		bossMIDIPlayer = new Midi();
 		upgradeMidiPlayer = new Midi();
-		new Window((int) drawWidth, (int) drawHeight, "Wave Game", this);
+		new Window((int) drawWidth, (int) drawHeight, "Wave Game ", this);
 		
 		
 		socket = new SocketIO("http://tubbschat.com:3000/");
@@ -385,7 +385,7 @@ public class Game extends Canvas implements Runnable {
 			gameWon.highscore = false;
 			gameWon.tick();
 		}
-		
+		/*
 		//working with midi
 		if (gameState == STATE.Game) {
 			bossMIDIPlayer.StopMidi();
@@ -433,6 +433,7 @@ public class Game extends Canvas implements Runnable {
 			bossMIDIPlayer.StopMidi();
 			upgradeMidiPlayer.StopMidi();
 		}
+		*/
 		}
 	}
 
