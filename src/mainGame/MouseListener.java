@@ -47,7 +47,7 @@ public class MouseListener extends MouseAdapter {
 		int mx = (int) (e.getX() / Game.scaleFactor);
 		int my = (int) (e.getY() / Game.scaleFactor);
 		
-		game.socket.emit("getBoard");
+		//game.socket.emit("getBoard");
 
 		if (game.gameState == STATE.GameOver) { //geting out of the game when game is over
 			handler.object.clear();
@@ -249,7 +249,35 @@ public class MouseListener extends MouseAdapter {
 				
 
 		//buttons for the help pause menu
-		} else if(game.gameState == STATE.PauseH1){
+		}
+		else if(game.gameState == STATE.PauseShop){
+
+			if (mouseOver(mx, my, 100, 125, 125, 125)) {
+				game.gameState = STATE.Pause;
+
+			}
+			if (mouseOver(mx, my, 300, 125, 125, 125)) {
+				game.gameState = STATE.Pause;
+
+			}
+			if (mouseOver(mx, my, 500, 125, 125, 125)) {
+				game.gameState = STATE.Pause;
+
+			}
+			if (mouseOver(mx, my, 700, 125, 125, 125)) {
+				game.gameState = STATE.Pause;
+
+			}
+			if (mouseOver(mx, my, 100, 325, 125, 125)) {
+				game.gameState = STATE.Pause;
+
+			}
+			if (mouseOver(mx, my, 300, 325, 125, 125)) {
+				game.gameState = STATE.Pause;
+
+			}
+		}
+		else if(game.gameState == STATE.PauseH1){
 			
 			if (mouseOver(mx, my, 850, 870, 200, 64)) {
 				game.gameState = STATE.Pause;

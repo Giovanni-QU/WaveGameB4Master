@@ -39,7 +39,18 @@ public class Pause {
 	private Image enemy3Img;
 	private Image enemy4Img;
 	private Image enemy5Img;
-	
+	private Image speedBoostIcon;
+	private Image healthRegenIcon;
+	private Image healthIncreaseIcon;
+	private Image shrinkIcon;
+	private Image freezeTimeIcon;
+	private Image clearScreenIcon;
+	private Image extraLifeIcon;
+	private Image damageResistanceIcon;
+	private Image coin;
+
+
+
 	private Image boss1Img;
 	private Image boss2Img;
 	
@@ -68,7 +79,18 @@ public class Pause {
 		enemy3Img = getImage("images/gameImgEnemy3.PNG");
 		enemy4Img = getImage("images/gameImgEnemy4.PNG");
 		enemy5Img = getImage("images/gameImgEnemy5.PNG");
-		
+		speedBoostIcon = getImage("images/SpeedBoostAbility.PNG");
+		healthRegenIcon = getImage("images/Health Regen Ability.png");
+		healthIncreaseIcon = getImage("images/Health Increase Ability.png");
+		shrinkIcon = getImage("images/Shrink Ability.png");
+		freezeTimeIcon = getImage("images/Freeze Time Ability.png");
+		clearScreenIcon = getImage("images/Clear Screen Ability.png");
+		extraLifeIcon = getImage("images/Extra Life Ability.png");
+		clearScreenIcon = getImage("images/Clear Screen Ability.png");
+		damageResistanceIcon = getImage("images/Damage Resistance Ability.png");
+		coin = getImage("images/PickupCoin.png");
+
+
 		boss1Img = getImage("images/EnemyBoss.png");
 		boss2Img = getImage("images/bosseye.png");
 		
@@ -166,8 +188,9 @@ public class Pause {
 	}
 	
 	public void render(Graphics g){
+		Font font;
 		if(game.gameState == STATE.Pause){
-			Font font = new Font("Amoebic", 1, 100);
+			font = new Font("Amoebic", 1, 100);
 			
 			
 			g.drawImage(buttonImg, 550, 100, 900, 200, null);
@@ -197,13 +220,24 @@ public class Pause {
 			g.setFont(font);
 			g.drawString("SHOP", 900, 975);
 			
+
 		}
 		if(game.gameState == STATE.PauseShop) {
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
 
+		} 
+
+
+        Font font2;
+        if (this.game.gameState == STATE.PauseShop) {
+            font = new Font("impact", 1, 50);
+            font2 = new Font("impact",1,30);
+			g.setColor(Color.BLACK);
+			g.fillRect(0,0,1920,1280);
 			g.setFont(font);
 			g.setColor(Color.white);
+
 			g.drawString("Shop in progress", 900, 70);
 
 			
@@ -216,6 +250,85 @@ public class Pause {
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
 
+			g.drawString("Shop", 900, 70);
+
+			int rectW = 1895;
+			int rectH = 1020;
+			int rectY = rectH - 80;
+
+			g.setColor(Color.white);
+			g.drawRect(10, 80, (rectW / 2) - 15, (rectY / 2) - 15); // top left
+			g.drawRect((rectW / 2) + 5, 80, (rectW / 2) - 15, (rectY / 2) - 15); // top right
+			g.drawRect(10, 80 + (rectY / 2) + 5, (rectW / 2) - 15, (rectY / 2) - 15); // bottom left
+			g.drawRect((rectW / 2) + 5, 80 + (rectY / 2) + 5, (rectW / 2) - 15, (rectY / 2) - 15); // bottom right
+
+
+			g.setFont(font2);
+			g.drawString("Passive Abilities", 360, 110);
+			g.drawString("Active Abilities", 360, 585);
+			g.drawString("Passive Loadout", 1260, 110);
+			g.drawString("Description", 1290, 585);
+
+			/*g.drawString("Shop under construction.", 900, 70);
+			g.drawString("Passive Abilities:", 100, 100);
+			g.drawString("Active Abilities: ", 100, 600);
+			g.drawRect(50, 100, 900, 450);
+			g.drawRect(1000, 100, 900, 450);
+			g.drawRect(50, 600, 900, 400);
+			g.drawRect(1000, 600, 900, 400);*/
+
+			//Left side of the Shop
+
+			//Health Regeneration
+			g.drawImage(healthRegenIcon, 100, 125, 125, 125, null);//passive
+			g.drawImage(coin,100,260,40,40,null);
+			g.drawString("X500",125,300);
+			//Increase Max Health
+			g.drawImage(healthIncreaseIcon, 300, 125, 125, 125, null);//passive
+			g.drawImage(coin,300,260,40,40,null);
+			g.drawString("X500",325,300);
+			//Shrink Player Size
+			g.drawImage(shrinkIcon, 500, 125, 125, 125, null);//passive
+			g.drawImage(coin,500,260,40,40,null);
+			g.drawString("X500",525,300);
+			//Extra Life
+			g.drawImage(extraLifeIcon, 300, 325, 125, 125, null);//passive
+			g.drawImage(coin,300,460,40,40,null);
+			g.drawString("X500",325,500);
+			//Freeze Time
+			g.drawImage(freezeTimeIcon, 100, 650, 125, 125, null);//Active
+			g.drawImage(coin,100,785,40,40,null);
+			g.drawString("X500",125,825);
+			//Speed Boost
+			g.drawImage(speedBoostIcon, 100, 325, 125, 125, null);//passive
+			g.drawImage(coin,100,460,40,40,null);
+			g.drawString("X500",125,500);
+			//Damage Resistance
+			g.drawImage(damageResistanceIcon, 700, 125, 125, 125, null);//passive
+			g.drawImage(coin,700,260,40,40,null);
+			g.drawString("X500",725,300);
+			//Clear Screen
+			g.drawImage(clearScreenIcon, 500, 650, 125, 125, null);//Active
+			g.drawImage(coin,500,785,40,40,null);
+			g.drawString("X500",525,825);
+
+			//Passive Loadout
+			g.drawImage(healthRegenIcon, 1050, 125, 125, 125, null);
+			g.drawImage(damageResistanceIcon, 1650, 125, 125, 125, null);
+			g.drawImage(freezeTimeIcon, 1450, 325, 125, 125, null);
+			g.drawImage(clearScreenIcon, 1650, 325, 125, 125, null);
+			g.drawImage(speedBoostIcon, 1050, 325, 125, 125, null);
+			g.drawImage(healthIncreaseIcon, 1250, 125, 125, 125, null);
+			g.drawImage(shrinkIcon, 1450, 125, 125, 125, null);
+			g.drawImage(extraLifeIcon, 1250, 325, 125, 125, null);
+
+			//Description
+			
+        } else if (this.game.gameState == STATE.PauseH1) {
+            font = new Font("impact", 1, 50);
+            font2 = new Font("impact", 1, 30);
+			g.setColor(Color.BLACK);
+			g.fillRect(0,0,1920,1280);
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("Help", 900, 70);
@@ -227,7 +340,7 @@ public class Pause {
 			g.drawString("Press P to pause and un-pause", 40, 400);
 			g.drawString("Press Enter to use abilities when they have been equipped", 40, 440);
 			
-			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
+			g.drawString("Click Next to see Enemy and Boss Summaries", 40, 800);
 
 			g.setFont(font2);
 			g.setColor(Color.white);
@@ -238,9 +351,11 @@ public class Pause {
 			g.drawRect(850, 870, 200, 64);
 			g.drawString("Main", 920, 910);
 		} else if (game.gameState == STATE.PauseH2){
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			font = new Font("impact", 1, 50);
+			font2 = new Font("impact", 1, 30);
 			
+			g.setColor(Color.BLACK);
+			g.fillRect(0,0,1920,1280);
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("Different Enemies", 800, 70);
@@ -286,9 +401,11 @@ public class Pause {
 			g.drawImage(enemy4Img, 1100, 440, 250, 250, null);
 			g.drawImage(enemy5Img, 1500, 440, 300, 250, null);
 		} else if (game.gameState == STATE.PauseH3){
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			font = new Font("impact", 1, 50);
+			font2 = new Font("impact", 1, 30);
 			
+			g.setColor(Color.BLACK);
+			g.fillRect(0,0,1920,1280);
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("The Bosses", 830, 70);
