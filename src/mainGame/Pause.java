@@ -294,8 +294,8 @@ public class Pause {
 			//Passive Loadout
 			g.drawImage(healthRegenIcon, 1050, 125, 125, 125, null);
 			g.drawImage(damageResistanceIcon, 1650, 125, 125, 125, null);
-			g.drawImage(freezeTimeIcon, 1050, 650, 125, 125, null);
-			g.drawImage(clearScreenIcon, 1450, 650, 125, 125, null);
+			g.drawImage(freezeTimeIcon, 1450, 325, 125, 125, null);
+			g.drawImage(clearScreenIcon, 1650, 325, 125, 125, null);
 			g.drawImage(speedBoostIcon, 1050, 325, 125, 125, null);
 			g.drawImage(healthIncreaseIcon, 1250, 125, 125, 125, null);
 			g.drawImage(shrinkIcon, 1450, 125, 125, 125, null);
