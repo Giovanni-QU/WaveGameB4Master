@@ -223,8 +223,8 @@ public class Pause {
 
 		}
 		if(game.gameState == STATE.PauseShop) {
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			font = new Font("impact", 1, 50);
+		
 
 		} 
 
@@ -247,8 +247,8 @@ public class Pause {
 		}
 			else if(game.gameState == STATE.PauseH1){
 			
-			Font font = new Font("impact", 1, 50);
-			Font font2 = new Font("impact", 1, 30);
+			 font = new Font("impact", 1, 50);
+			font2 = new Font("impact", 1, 30);
 
 			g.drawString("Shop", 900, 70);
 
