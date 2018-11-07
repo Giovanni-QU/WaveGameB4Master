@@ -25,9 +25,9 @@ public class Player extends GameObject {
 	Handler handler;
 	private HUD hud;
 	private Game game;
-	private int damage;
+	private double damage;
 	private int playerWidth, playerHeight;
-	private int tempInvincable = 0;
+	private int tempInvincible = 0;
 	public static int playerSpeed = 10;
 	public static int diagonalPlayerSpeed = 8;
 	private SimpleMidi hitsoundMIDIPlayer;
@@ -55,8 +55,8 @@ public class Player extends GameObject {
 		// add the trail that follows it
 		handler.addObject(new Trail(x, y, ID.Trail, Color.white, playerWidth, playerHeight, 0.05, this.handler));
 		collision();
-		if (tempInvincable > 0) {
-			tempInvincable--;
+		if (tempInvincible > 0) {
+			tempInvincible--;
 		}
 		if (wasHit == true) {
 			try {
@@ -95,7 +95,7 @@ public class Player extends GameObject {
 			if (pickupObject.getId() == ID.PickupCoin) {
 				
 				if (this.getBounds().intersects(pickupObject.getBounds())) {
-					hud.setScore(500);
+					hud.setScore(100);
 					handler.removePickup(pickupObject);
 				}
 			}
@@ -110,11 +110,11 @@ public class Player extends GameObject {
 					|| tempObject.getId() == ID.EnemyBurst || tempObject.getId() == ID.EnemyShooter
 					|| tempObject.getId() == ID.BossEye) {// tempObject is an enemy
 				// collision code
-				if (getBounds().intersects(tempObject.getBounds()) && tempInvincable == 0) {// player hit an enemy
+				if (getBounds().intersects(tempObject.getBounds()) && tempInvincible == 0) {// player hit an enemy
 					hud.health -= damage;
 					hud.updateScoreColor(Color.red);
 					wasHit = true;
-					tempInvincable = 15;
+					tempInvincible = 15;
 				}
 			}
 			if (tempObject.getId() == ID.EnemyBoss) {
@@ -140,12 +140,18 @@ public class Player extends GameObject {
 		return new Rectangle((int) this.x, (int) this.y, 32, 32);
 	}
 
-	public void setDamage(int damage) {
+	public void setDamage(double damage) {
 		this.damage = damage;
 	}
+	public double getDamage(){
+		return this.damage;
+	}
 
-	public void setPlayerSize(int size) {
-		this.playerWidth = size;
-		this.playerHeight = size;
+	public void setPlayerSize(double size) {
+		this.playerWidth = (int)size;
+		this.playerHeight = (int)size;
+	}
+	public double getPlayerSize(){
+		return this.playerWidth;
 	}
 }
