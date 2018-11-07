@@ -143,14 +143,6 @@ public class Player extends GameObject {
 	public void setDamage(int damage) {
 		this.damage = damage;
 	}
-	
-	public double getX() {
-		return (int) this.x;
-	}
-	
-	public double getY() {
-		return (int) this.y;
-	}
 
 	public void setPlayerSize(int size) {
 		this.playerWidth = size;

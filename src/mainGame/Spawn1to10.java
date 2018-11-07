@@ -217,12 +217,16 @@ public class Spawn1to10 {
 					levels.remove(index);
 					levelsRemaining--;
 					if (levelsRemaining > 5) {
+						System.out.println("Level Number was: " + levelNumber + " And is staying low!");
 						index = r.nextInt(levelsRemaining - 5);
 						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber + "   " + index);
 					}
 					else {
+						System.out.println("Level Number was: " + levelNumber + " And is going up!");
 						index = r.nextInt(levelsRemaining);
 						levelNumber = levels.get(index);
+						System.out.println("And is changing to: " + levelNumber);
 					}
 				}
 			}
@@ -496,7 +500,8 @@ public class Spawn1to10 {
 				handler.clearLevelText();
 			}
 			if (spawnTimer == 0) {
-				handler.addObject(new EnemySmart(randx, randy, -8, ID.EnemySmart, handler));
+				handler.addObject(
+						new EnemySmart(randx, randy, -8, ID.EnemySmart, handler));
 				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 200, side[r.nextInt(4)], ID.EnemyBurst, handler));
 				spawnTimer = 50;
 			}
