@@ -22,18 +22,114 @@ public class HUD {
 	private boolean regen = false;
 	private int timer = 10;
 	private int healthBarWidth = 400;
-	private int healthBarModifier = 2;
+	private double healthBarModifier = 2.5;
 	private boolean doubleHealth = false;
 	private String ability = "";
-	private int abilityUses;
+	private int abilityUses = 0;
 	private Color scoreColor = Color.white;
 	private Color freezeColor = new Color(0, 255, 255, 25);
 	private Color regenColor = new Color(120, 255, 120);
 	private int extraLives = 0;
 	private double randnumber;
 	private String highScoreString = "";
-	
+	private double costMultipier = 1.25;
+	private double cost = 500;
+	private double activeCost = 3000;
+	private int numFreeze=0;
+	private int numRegen=0;
+	private int numHealth=0;
+	private int numSpeed=0;
+	private int numShrink=0;
+	private int numArmor=0;
+	private int numClear=0;
+	private double regenValue = 0;
 	private ArrayList<String> leaderboard;
+
+	public int getNumClear() {
+		return numClear;
+	}
+
+	public void setNumClear() {
+		this.numClear += 1;
+	}
+	public double getregenValue() {
+		return regenValue;
+	}
+
+	public void setregenValue() {
+		this.regenValue += .25;
+	}
+
+	public int getNumFreeze() {
+		return numFreeze;
+	}
+
+	public void setNumFreeze() {
+		this.numFreeze += 1;
+	}
+
+	public int getNumRegen() {
+		return numRegen;
+	}
+
+	public void setNumRegen() {
+		this.numRegen += 1;
+	}
+
+	public int getNumHealth() {
+		return numHealth;
+	}
+
+	public void setNumHealth() {
+		this.numHealth += 1;
+	}
+
+	public int getNumSpeed() {
+		return numSpeed;
+	}
+
+	public void setNumSpeed() {
+		this.numSpeed += 1;
+	}
+
+	public int getNumShrink() {
+		return numShrink;
+	}
+
+	public void setNumShrink() {
+		this.numShrink += 1;
+	}
+
+	public int getNumArmor() {
+		return numArmor;
+	}
+
+	public void setNumArmor() {
+		this.numArmor += 1;
+	}
+
+	public double getCostMultipier() {
+		return costMultipier;
+	}
+
+	public void setCostMultipier(double costMultipier) {
+		this.costMultipier = costMultipier;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public double getActiveCost(){
+		return activeCost;
+	}
+	public void setActiveCost(double a){
+		this.activeCost = a;
+	}
 
 	public void tick() {
 		health = Game.clamp(health, 0, health);
@@ -48,7 +144,7 @@ public class HUD {
 		if (regen) {// regenerates health if that ability has been unlocked
 			timer--;
 			if (timer == 0) {
-				health += 1;
+				health += this.getregenValue();
 				timer = 10;
 			}
 			health = Game.clamp(health, 0, healthMax);
@@ -118,7 +214,7 @@ public class HUD {
 	}
 
 	public void setAbilityUses(int abilityUses) {
-		this.abilityUses = abilityUses;
+		this.abilityUses += abilityUses;
 	}
 
 	public void updateScoreColor(Color color) {
@@ -167,17 +263,17 @@ public class HUD {
 
 	public void healthIncrease() {
 		doubleHealth = true;
-		healthMax = 200;
+		healthMax = healthMax+50;
 		this.health = healthMax;
-		healthBarModifier = 1;
-		healthBarWidth = 800;
+		healthBarModifier = (250/healthMax);
+		healthBarWidth = 4*(int)healthMax;
 	}
 
 	public void resetHealth() {
 		doubleHealth = false;
 		healthMax = 100;
 		this.health = healthMax;
-		healthBarModifier = 2;
+		healthBarModifier = 2.5;
 		healthBarWidth = 400;
 	}
 
