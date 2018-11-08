@@ -73,27 +73,27 @@ public class Pause {
 		this.spawner2 = sp2;
 		this.upgrade = upgrade;
 		
-		buttonImg = getImage("images/MenuButton.png");
+		buttonImg = getImage("/images/MenuButton.png");
 		
-		enemy1Img = getImage("images/gameImgEnemy1.PNG");
-		enemy2Img = getImage("images/gameImgEnemy2.PNG");
-		enemy3Img = getImage("images/gameImgEnemy3.PNG");
-		enemy4Img = getImage("images/gameImgEnemy4.PNG");
-		enemy5Img = getImage("images/gameImgEnemy5.PNG");
-		speedBoostIcon = getImage("images/SpeedBoostAbility.PNG");
-		healthRegenIcon = getImage("images/Health Regen Ability.png");
-		healthIncreaseIcon = getImage("images/Health Increase Ability.png");
-		shrinkIcon = getImage("images/Shrink Ability.png");
-		freezeTimeIcon = getImage("images/Freeze Time Ability.png");
-		clearScreenIcon = getImage("images/Clear Screen Ability.png");
-		extraLifeIcon = getImage("images/Extra Life Ability.png");
-		clearScreenIcon = getImage("images/Clear Screen Ability.png");
-		damageResistanceIcon = getImage("images/Damage Resistance Ability.png");
-		coin = getImage("images/PickupCoin.png");
+		enemy1Img = getImage("/images/gameImgEnemy1.PNG");
+		enemy2Img = getImage("/images/gameImgEnemy2.PNG");
+		enemy3Img = getImage("/images/gameImgEnemy3.PNG");
+		enemy4Img = getImage("/images/gameImgEnemy4.PNG");
+		enemy5Img = getImage("/images/gameImgEnemy5.PNG");
+		speedBoostIcon = getImage("/images/SpeedBoostAbility.PNG");
+		healthRegenIcon = getImage("/images/Health Regen Ability.png");
+		healthIncreaseIcon = getImage("/images/Health Increase Ability.png");
+		shrinkIcon = getImage("/images/Shrink Ability.png");
+		freezeTimeIcon = getImage("/images/Freeze Time Ability.png");
+		clearScreenIcon = getImage("/images/Clear Screen Ability.png");
+		extraLifeIcon = getImage("/images/Extra Life Ability.png");
+		clearScreenIcon = getImage("/images/Clear Screen Ability.png");
+		damageResistanceIcon = getImage("/images/Damage Resistance Ability.png");
+		coin = getImage("/images/PickupCoin.png");
 
 
-		boss1Img = getImage("images/EnemyBoss.png");
-		boss2Img = getImage("images/bosseye.png");
+		boss1Img = getImage("/images/EnemyBoss.png");
+		boss2Img = getImage("/images/bosseye.png");
 		
 		this.gameSaved = gameSaved;
 		pause = this;
@@ -241,19 +241,96 @@ public class Pause {
         if (this.game.gameState == STATE.PauseShop) {
             font = new Font("impact", 1, 50);
             font2 = new Font("impact",1,30);
-			g.setColor(Color.BLACK);
-			g.fillRect(0,0,1920,1280);
-			g.setFont(font);
-			g.setColor(Color.white);
+    g.setColor(Color.BLACK);
+    g.fillRect(0,0,1920,1280);
+    g.setFont(font);
+    g.setColor(Color.white);
+    g.drawString("Shop", 900, 70);
+
+    int rectW = 1895;
+    int rectH = 1020;
+    int rectY = rectH - 80;
 
 
-			g.drawString("Shop in progress", 900, 70);
+    g.setColor(Color.white);
+    g.drawRect(10, 80, (rectW / 2) - 15, (rectY / 2) - 15); // top left
+    g.drawRect((rectW / 2) + 5, 80, (rectW / 2) - 15, (rectY / 2) - 15); // top right
+    g.drawRect(10, 80 + (rectY / 2) + 5, (rectW / 2) - 15, (rectY / 2) - 15); // bottom left
+    g.drawRect((rectW / 2) + 5, 80 + (rectY / 2) + 5, (rectW / 2) - 15, (rectY / 2) - 15); // bottom right
 
-			
-			
-			g.drawRect(850, 870, 200, 64);
-			g.drawString("Main", 920, 910);
-		}
+    g.setFont(font2);
+    g.drawString("Passive Abilities", 360, 110);
+    g.drawString("Active Abilities", 360, 585);
+    g.drawString("Passive Loadout", 1260, 110);
+    g.drawString("Description", 1290, 585);
+
+    //Back Button
+    g.drawRect(1795,950,80,50);
+    g.drawString("Back",1805,985);
+
+    //Current coins
+    g.drawImage(coin,8,8,40,40,null);
+    g.drawString("X" + hud.getScore(),33,48);
+
+
+
+    //Left side of the Shop
+
+    //Health Regeneration
+    g.drawImage(healthRegenIcon, 100, 125, 125, 125, null);//passive
+    g.drawImage(coin,100,260,40,40,null);
+    g.drawString("X" + (int)hud.getCost(),125,300);
+    //Increase Max Health
+    g.drawImage(healthIncreaseIcon, 300, 125, 125, 125, null);//passive
+    g.drawImage(coin,300,260,40,40,null);
+    g.drawString("X" + (int)hud.getCost(),325,300);
+    //Shrink Player Size
+    g.drawImage(shrinkIcon, 500, 125, 125, 125, null);//passive
+    g.drawImage(coin,500,260,40,40,null);
+    g.drawString("X" + (int)hud.getCost(),525,300);
+    //Extra Life
+    g.drawImage(extraLifeIcon, 300, 325, 125, 125, null);//passive
+    g.drawImage(coin,300,460,40,40,null);
+    g.drawString("X" + (int)hud.getCost(),325,500);
+    //Freeze Time
+    g.drawImage(freezeTimeIcon, 100, 650, 125, 125, null);//Active
+    g.drawImage(coin,100,785,40,40,null);
+    g.drawString("X" + (int)hud.getActiveCost(),125,825);
+    //Speed Boost
+    g.drawImage(speedBoostIcon, 100, 325, 125, 125, null);//passive
+    g.drawImage(coin,100,460,40,40,null);
+    g.drawString("X" + (int)hud.getCost(),125,500);
+    //Damage Resistance
+    g.drawImage(damageResistanceIcon, 700, 125, 125, 125, null);//passive
+    g.drawImage(coin,700,260,40,40,null);
+    g.drawString("X" + (int)hud.getCost(),725,300);
+    //Clear Screen
+    g.drawImage(clearScreenIcon, 500, 650, 125, 125, null);//Active
+    g.drawImage(coin,500,785,40,40,null);
+    g.drawString("X" + (int)hud.getActiveCost(),525,825);
+
+    //Loadout
+    g.drawImage(healthRegenIcon, 1050, 125, 125, 125, null);
+    g.drawString("X"+hud.getNumRegen(),1050,300);
+    g.drawImage(damageResistanceIcon, 1650, 125, 125, 125, null);
+    g.drawString("X"+hud.getNumArmor(),1650,300);
+    g.drawImage(freezeTimeIcon, 1450, 325, 125, 125, null);
+    g.drawString("X"+hud.getNumFreeze(),1450,500);
+    g.drawImage(clearScreenIcon, 1650, 325, 125, 125, null);
+    g.drawString("X"+hud.getNumClear(),1650,500);
+    g.drawImage(speedBoostIcon, 1050, 325, 125, 125, null);
+    g.drawString("X"+hud.getNumSpeed(),1050,500);
+    g.drawImage(healthIncreaseIcon, 1250, 125, 125, 125, null);
+    g.drawString("X"+hud.getNumHealth(),1250,300);
+    g.drawImage(shrinkIcon, 1450, 125, 125, 125, null);
+    g.drawString("X"+hud.getNumShrink(),1450,300);
+    g.drawImage(extraLifeIcon, 1250, 325, 125, 125, null);
+    g.drawString("X"+hud.getExtraLives(),1250,500);
+
+    //Description
+    g.drawString(this.getDescription(),1000,650);
+
+        }
 			else if(game.gameState == STATE.PauseH1){
 			
 			 font = new Font("impact", 1, 50);
