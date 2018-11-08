@@ -229,6 +229,14 @@ public class Pause {
             g.drawString("SHOP", 850, 980);
 		}
 
+		if(game.gameState == STATE.PauseShop) {
+			font = new Font("impact", 1, 50);
+		
+
+		} 
+
+
+
         Font font2;
         if (this.game.gameState == STATE.PauseShop) {
             font = new Font("impact", 1, 50);
@@ -237,6 +245,21 @@ public class Pause {
 			g.fillRect(0,0,1920,1280);
 			g.setFont(font);
 			g.setColor(Color.white);
+
+
+			g.drawString("Shop in progress", 900, 70);
+
+			
+			
+			g.drawRect(850, 870, 200, 64);
+			g.drawString("Main", 920, 910);
+		}
+			else if(game.gameState == STATE.PauseH1){
+			
+			 font = new Font("impact", 1, 50);
+			font2 = new Font("impact", 1, 30);
+
+
 			g.drawString("Shop", 900, 70);
 
 			int rectW = 1895;
