@@ -56,6 +56,7 @@ public class GameOver {
 
 	public void tick(){
 		handler.clearPlayer();
+		handler.clearCoins();
 		flash();
 	}
 

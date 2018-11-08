@@ -36,6 +36,7 @@ public class Spawn1to10 {
 	private int levelCounter = 1;
 	private LevelText welcomePit;
 	private LevelText welcome1;
+	private LevelText controls;
 	private int randnumber;
 
 	public Spawn1to10(Handler handler, HUD hud, Game game) {
@@ -99,12 +100,18 @@ public class Spawn1to10 {
 		if (levelNumber <= 0) {
 			levelTimer--;
 			if (tempCounter < 1) {// display intro game message ONE time
-				handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, "Let's start off easy...",
-						ID.Levels1to10Text, handler));
+				 welcome1 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, "Let's start off easy...",
+						ID.Levels1to10Text, handler);
+					handler.addObject(welcome1);
+				LevelText controls = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, "Controls",
+						ID.Levels1to10Text, handler);
+						handler.addObject(controls);
 				tempCounter++;
+				
 			}
 			if (levelTimer <= 0) {// time to play!
-				handler.clearEnemies();
+				//handler.clearEnemies();
+				handler.removeObject(welcome1);
 				handler.clearCoins();
 				tempCounter = 0;
 				levelCounter = 1;
