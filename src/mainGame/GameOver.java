@@ -43,15 +43,14 @@ public class GameOver {
 		this.retryColor = Color.white;
 	}
 	
-	public void sendScore() throws JSONException{
+	public void sendScore(){
 		
 		String username = JOptionPane.showInputDialog("Enter a username to submit your score!");
 		
-		JSONObject jsonString = new JSONObject()
-				.put("username", username)
-				.put("score", hud.getScore());
+		String Highscore = new String();
+		Highscore = username+" "+hud.getScore();
 		
-		game.socket.emit("setScore", jsonString);
+
 	}
 
 	public void tick(){
