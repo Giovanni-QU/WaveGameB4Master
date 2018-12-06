@@ -63,6 +63,8 @@ public class Game extends Canvas implements Runnable {
 	private String gameMIDIMusic = "Danza_Kuduro_synth.mid";
 	private Midi bossMIDIPlayer;
 	private String bossMIDIMusic = "sm1castl_synth.mid";
+	private String ShopMIDIMusic = "Fresh-Prince-Belair.mid";
+	private Midi ShopMIDIPlayer;
 	float originalTempoGAME;
 	private Game game;
 	
@@ -116,6 +118,7 @@ public class Game extends Canvas implements Runnable {
 		menuMIDIPlayer = new Midi();
 		bossMIDIPlayer = new Midi();
 		upgradeMidiPlayer = new Midi();
+		ShopMIDIPlayer = new Midi();
 		new Window((int) drawWidth, (int) drawHeight, "Wave Game ", this);
 		
 		
@@ -351,8 +354,20 @@ public class Game extends Canvas implements Runnable {
 	 * @throws JSONException 
 	 */
 	private void tick() throws IOException, JSONException {
-		if(gameState == STATE.Pause || gameState == STATE.PauseH1 || gameState == STATE.PauseH2 || gameState == STATE.PauseH3 || gameState == STATE.Leaderboard){
+		if(gameState == STATE.Pause || gameState == STATE.PauseShop || gameState == STATE.PauseH1 || gameState == STATE.PauseH2 || gameState == STATE.PauseH3 || gameState == STATE.Leaderboard){
 			//do nothing when paused
+			
+			bossMIDIPlayer.StopMidi();
+			upgradeMidiPlayer.StopMidi();
+			menuMIDIPlayer.StopMidi();
+			gameMIDIPlayer.StopMidi();
+			
+			
+			try {
+				ShopMIDIPlayer.PlayMidi(ShopMIDIMusic);
+			} catch (IOException | InvalidMidiDataException | MidiUnavailableException e) {
+				e.printStackTrace();
+			}
 			
 		} else {
 		
@@ -385,12 +400,14 @@ public class Game extends Canvas implements Runnable {
 			gameWon.highscore = false;
 			gameWon.tick();
 		}
-		/*
+		
 		//working with midi
+		
 		if (gameState == STATE.Game) {
 			bossMIDIPlayer.StopMidi();
 			upgradeMidiPlayer.StopMidi();
 			menuMIDIPlayer.StopMidi();
+			ShopMIDIPlayer.StopMidi();
 			try {
 				gameMIDIPlayer.PlayMidi(gameMIDIMusic);
 				originalTempoGAME = gameMIDIPlayer.getTempo();
@@ -407,14 +424,16 @@ public class Game extends Canvas implements Runnable {
 			gameMIDIPlayer.StopMidi();
 			bossMIDIPlayer.StopMidi();
 			upgradeMidiPlayer.StopMidi();
+			ShopMIDIPlayer.StopMidi();
 			try {
 				menuMIDIPlayer.PlayMidi(menuMIDIMusic);
 			} catch (IOException | InvalidMidiDataException | MidiUnavailableException e) {
 				e.printStackTrace();
 			}
-		} else if (gameState == STATE.Boss) {
+		}else if (gameState == STATE.Boss) {
 			gameMIDIPlayer.StopMidi();
 			menuMIDIPlayer.StopMidi();
+			ShopMIDIPlayer.StopMidi();
 			try {
 				bossMIDIPlayer.PlayMidi(bossMIDIMusic);
 			} catch (IOException | InvalidMidiDataException | MidiUnavailableException e) {
@@ -422,6 +441,7 @@ public class Game extends Canvas implements Runnable {
 			}
 		}  else if (gameState == STATE.Upgrade) {
 			bossMIDIPlayer.StopMidi();
+			ShopMIDIPlayer.StopMidi();
 			try {
 				upgradeMidiPlayer.PlayMidi(upgradeMIDIMusic);
 			} catch (IOException | InvalidMidiDataException | MidiUnavailableException e) {
@@ -432,8 +452,9 @@ public class Game extends Canvas implements Runnable {
 			menuMIDIPlayer.StopMidi();
 			bossMIDIPlayer.StopMidi();
 			upgradeMidiPlayer.StopMidi();
+			ShopMIDIPlayer.StopMidi();
 		}
-		*/
+		
 		}
 	}
 

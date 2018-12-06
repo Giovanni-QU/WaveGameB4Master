@@ -33,7 +33,7 @@ public class Upgrades {
 
 	public void clearScreenAbility() {
 		handler.clearEnemies();
-		hud.setAbilityUses(hud.getAbilityUses() - 1);
+		hud.setAbilityUses(-1);
 		if (hud.getAbilityUses() == 0) {
 			ability = "";
 		}
@@ -80,7 +80,7 @@ public class Upgrades {
 		handler.pause();
 		Spawn1to10.setSpawn(false);
 		Spawn10to20.setSpawn(false);
-		hud.setAbilityUses(hud.getAbilityUses() - 1);
+		hud.setAbilityUses(-1);
 		if (hud.getAbilityUses() == 0) {
 			ability = "";
 		}

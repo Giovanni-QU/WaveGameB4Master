@@ -231,13 +231,16 @@ public class MouseListener extends MouseAdapter {
 					} 
 					game.gameState = STATE.Menu;
 				}
-				if (mouseOver(mx, my, 550, 850, 900, 200)) {
-					game.gameState = STATE.PauseShop;
-				}
+
 				if(mouseOver(mx, my, 550, 400, 900, 200)){
 					game.gameState = STATE.PauseH1;
 				}
 				
+				if (this.mouseOver(mx, my, 550, 850, 900, 200)) {
+				game.gameState = STATE.PauseShop;
+				pause.setDescription("Click on an ability in the Loadout to see its description.");
+				}
+
 				if(mouseOver(mx, my, 550, 700, 900, 200)){
 					pause.setGameSaved(true);
 					pause.saveGame();
@@ -245,36 +248,142 @@ public class MouseListener extends MouseAdapter {
 					
 				}
 				
-				
-				
 
 		//buttons for the help pause menu
 		}
 		else if(game.gameState == STATE.PauseShop){
-
+			//Health Regen
 			if (mouseOver(mx, my, 100, 125, 125, 125)) {
-				game.gameState = STATE.Pause;
+				if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int)hud.getCost());
+					hud.setCost(hud.getCost()*hud.getCostMultipier());
+					hud.setRegen();
+					hud.setNumRegen();
+					hud.setregenValue();
+				}
 
 			}
+			//Health Increase
 			if (mouseOver(mx, my, 300, 125, 125, 125)) {
-				game.gameState = STATE.Pause;
-
+				if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int)hud.getCost());
+					hud.setCost(hud.getCost()*hud.getCostMultipier());
+					hud.healthIncrease();
+					hud.setNumHealth();
 			}
+			}
+			//Shrink
 			if (mouseOver(mx, my, 500, 125, 125, 125)) {
-				game.gameState = STATE.Pause;
-
+				if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int)hud.getCost());
+					hud.setCost(hud.getCost()*hud.getCostMultipier());
+					upgrades.decreasePlayerSize();
+					hud.setNumShrink();
 			}
+			}
+			//Damage Resistance
 			if (mouseOver(mx, my, 700, 125, 125, 125)) {
-				game.gameState = STATE.Pause;
+				if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int)hud.getCost());
+					hud.setCost(hud.getCost()*hud.getCostMultipier());
+					upgrades.improvedDamageResistance();
+					hud.setNumArmor();
+				}
 
 			}
+			//Speed Boost
 			if (mouseOver(mx, my, 100, 325, 125, 125)) {
-				game.gameState = STATE.Pause;
-
+				if(hud.getScore()>=hud.getCost()) {
+					hud.setScore(-(int)hud.getCost());
+					hud.setCost(hud.getCost()*hud.getCostMultipier());
+					upgrades.speedBoost();
+					hud.setNumSpeed();
 			}
+			}
+			//Extra Life
 			if (mouseOver(mx, my, 300, 325, 125, 125)) {
-				game.gameState = STATE.Pause;
+			if(hud.getScore()>=hud.getCost()){
+				hud.setScore(-(int)hud.getCost());
+				hud.setCost(hud.getCost()*hud.getCostMultipier());
+				hud.setExtraLives(hud.getExtraLives() + 1);
+				}
+			}
+			//Freeze Time
+			if (mouseOver(mx, my, 100, 650, 125, 125)) {
+				if(upgrades.getAbility().equals("")){
+				if (hud.getScore() >= hud.getActiveCost()) {
+					hud.setScore(-(int) hud.getActiveCost());
+					hud.setActiveCost(hud.getActiveCost() * 2);
+					upgrades.setAbility("freezeTime");
+					hud.setNumFreeze();
+					}
+				}
+				else if(upgrades.getAbility().equals("freezeTime")){
+					if (hud.getScore() >= hud.getActiveCost()) {
+						hud.setScore(-(int) hud.getActiveCost());
+						hud.setActiveCost(hud.getActiveCost() * 2);
+						hud.setAbilityUses(5);
+						hud.setNumFreeze();
+					}
+				}
+			}
+			//Clear Screen
+			if (mouseOver(mx, my, 500, 650, 125, 125)) {
+				if(upgrades.getAbility().equals("")) {
+					if (hud.getScore() >= hud.getActiveCost()) {
+						hud.setScore(-(int) hud.getActiveCost());
+						hud.setActiveCost(hud.getActiveCost() * 2);
+						upgrades.setAbility("clearScreen");
+						hud.setNumClear();
+					}
+				}
+				else if(upgrades.getAbility().equals("clearScreen")){
+					if (hud.getScore() >= hud.getActiveCost()) {
+						hud.setScore(-(int) hud.getActiveCost());
+						hud.setActiveCost(hud.getActiveCost() * 2);
+						hud.setAbilityUses(3);
+						hud.setNumClear();
+					}
+				}
+			}
 
+			//Loadout Descriptions
+
+			//Health Regen
+			if(mouseOver(mx,my,1050,125,125,125)){
+				pause.setDescription("Regenerates player's health at 0.25 HP per tick per purchase.");
+			}
+			//Health Increase
+			if(mouseOver(mx,my,1250,125,125,125)){
+				pause.setDescription("Increases player's maximum HP and heals the player to full.");
+			}
+			//Shrink
+			if(mouseOver(mx,my,1450,125,125,125)){
+				pause.setDescription("Shrinks the player.");
+			}
+			//Damage Resistance
+			if(mouseOver(mx,my,1650,125,125,125)){
+				pause.setDescription("Lowers damage taken by 25%.");
+			}
+			//Speed Boost
+			if(mouseOver(mx,my,1050,325,125,125)){
+				pause.setDescription("Increases player's speed.");
+			}
+			//Extra Life
+			if(mouseOver(mx,my,1250,325,125,125)){
+				pause.setDescription("Gives the player an extra life.");
+			}
+			//Freeze Time
+			if(mouseOver(mx,my,1450,325,125,125)){
+				pause.setDescription("Freezes all enemies in place for a short period. Comes with 5 uses.");
+			}
+			//Clear Screen
+			if(mouseOver(mx,my,1650,325,125,125)){
+				pause.setDescription("Clears all enemies off of the screen. Comes with 3 uses.");
+			}
+			//Back Button
+			if(mouseOver(mx,my,1795,950,80,50)){
+				game.gameState = STATE.Pause;
 			}
 		}
 		else if(game.gameState == STATE.PauseH1){
@@ -311,7 +420,6 @@ public class MouseListener extends MouseAdapter {
 			
 			if (mouseOver(mx, my, 850, 870, 200, 64)) {
 				game.gameState = STATE.Pause;
-				return;
 			}
 		} else if (game.gameState == STATE.Leaderboard){
 			game.gameState = STATE.Menu;
