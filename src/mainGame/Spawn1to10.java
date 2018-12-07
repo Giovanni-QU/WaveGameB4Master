@@ -71,7 +71,7 @@ public class Spawn1to10 {
 	 * Called once every 60 seconds by the Game loop
 	 */
 	public void tick() {
-		randnumber = getRandomInteger(1, 100);
+		randnumber = getRandomInteger(100, 1);
 		if (game.getPlayerXInt() > (Game.WIDTH - Game.WIDTH/(6 + (2/3)) - 5)) {
 			randx = r.nextInt((Game.WIDTH - (Game.WIDTH - game.getPlayerXInt())) - Game.WIDTH/(6 + (2/3)));
 		} else if (game.getPlayerXInt() < Game.WIDTH/(6 + (2/3)) + 5) {
@@ -548,6 +548,8 @@ public class Spawn1to10 {
 				tempCounter++;
 				handler.addObject(new EnemyShooter(randx - 35, randy - 75, 200, 200,
 						-15, ID.EnemyShooter, this.handler));
+				levelTimer = 2500;
+				tempCounter++;
 			}
 			if (levelTimer == 900){
 				handler.clearLevelText();

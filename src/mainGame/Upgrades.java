@@ -40,7 +40,7 @@ public class Upgrades {
 	}
 
 	public void decreasePlayerSize() {
-		player.setPlayerSize(24);
+		player.setPlayerSize(player.getPlayerSize()/1.5);
 	}
 
 	public void extraLife() {
@@ -56,7 +56,7 @@ public class Upgrades {
 	}
 
 	public void improvedDamageResistance() {
-		player.setDamage(1);
+		player.setDamage(player.getDamage()/1.5);
 	}
 
 	public void levelSkipAbility() {
@@ -80,7 +80,7 @@ public class Upgrades {
 		handler.pause();
 		Spawn1to10.setSpawn(false);
 		Spawn10to20.setSpawn(false);
-		hud.setAbilityUses(hud.getAbilityUses() - 1);
+		hud.setAbilityUses(-1);
 		if (hud.getAbilityUses() == 0) {
 			ability = "";
 		}

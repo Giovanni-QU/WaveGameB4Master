@@ -57,8 +57,8 @@ public class KeyInput extends KeyAdapter {
 				game.gameState = STATE.Pause;
 				
 				
-			} else if (game.gameState == STATE.Pause || game.gameState == STATE.PauseH1 || game.gameState == STATE.PauseH2 || game.gameState == STATE.PauseH3){
-				game.socket.emit("getBoard");
+			} else if (game.gameState == STATE.Pause || game.gameState == STATE.PauseH1 || game.gameState == STATE.PauseH2 || game.gameState == STATE.PauseH3 || game.gameState ==STATE.PauseShop){
+				//game.socket.emit("getBoard");
 				game.gameState = STATE.Game;
 				
 			}
