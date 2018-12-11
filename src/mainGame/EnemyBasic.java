@@ -26,9 +26,9 @@ public class EnemyBasic extends GameObject {
 		this.x += velX;
 		this.y += velY;
 
-		if (this.y <= 0 || this.y >= Game.HEIGHT - 40)
+		if (this.y <= 0 || this.y >= Game.HEIGHT - 66)
 			velY *= -1;
-		if (this.x <= 0 || this.x >= Game.WIDTH - 16)
+		if (this.x <= 0 || this.x >= Game.WIDTH - 39)
 			velX *= -1;
 
 		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.025, this.handler));

@@ -52,7 +52,10 @@ public abstract class GameObject {
 	}
 
 	public void setY(int y) {
-		this.y = y;
+			this.y = y;
+			if (this.y > 900) {
+				this.y = 900;
+			}
 	}
 
 	public ID getId() {

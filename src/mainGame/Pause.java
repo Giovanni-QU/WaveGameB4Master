@@ -193,32 +193,35 @@ public class Pause {
 			font = new Font("Amoebic", 1, 100);
 			
 			
-			g.drawImage(buttonImg, 550, 100, 900, 200, null);
+			g.drawImage(buttonImg, (int) (Game.drawWidth*0.28645833333333333333333333333333), (int) (Game.drawHeight*0.09259259259259259259259259259259), (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.18518518518518518518518518518519), null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
-			g.drawString("MAIN", 900, 225);
+			g.drawString("MAIN", (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.20833333333333333333333333333333));
 			
-			g.drawImage(buttonImg, 550, 350, 900, 200, null);
+			//(int) (Game.drawWidth*)
+			//(int) (Game.drawHeight*)
+			
+			g.drawImage(buttonImg, (int) (Game.drawWidth*0.28645833333333333333333333333333), (int) (Game.drawHeight*0.32407407407407407407407407407407), (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.18518518518518518518518518518519), null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
-			g.drawString("HELP", 900, 475);
+			g.drawString("HELP", (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.43981481481481481481481481481481));
 			
-			g.drawImage(buttonImg, 550, 600, 900, 200, null);
+			g.drawImage(buttonImg, (int) (Game.drawWidth*0.28645833333333333333333333333333), (int) (Game.drawHeight*0.55555555555555555555555555555556), (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.18518518518518518518518518518519), null);
 			
 			g.setColor(Color.WHITE);
 			g.setFont(font);
 			
 			if(!gameSaved){
-				g.drawString("SAVE", 900, 725);
+				g.drawString("SAVE", (int) (Game.drawWidth*0.46875), 725);
 			} else {
-				g.drawString("SAVED", 900, 725);
+				g.drawString("SAVED", (int) (Game.drawWidth*0.46875), 725);
 			}
-			g.drawImage(buttonImg, 550, 850, 900, 200, null);
+			g.drawImage(buttonImg, (int) (Game.drawWidth*0.28645833333333333333333333333333), (int) (Game.drawHeight*0.78703703703703703703703703703704), (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.18518518518518518518518518518519), null);
 			g.setColor(Color.WHITE);
 			g.setFont(font);
-			g.drawString("SHOP", 900, 975);
+			g.drawString("SHOP", (int) (Game.drawWidth*0.46875), 975);
 			
 
 		}

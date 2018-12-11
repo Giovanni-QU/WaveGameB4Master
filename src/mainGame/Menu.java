@@ -125,29 +125,29 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Game Modes", 1140, 200);
+			g.drawString("Game Modes", (int) (Game.drawWidth*0.59375), (int) (Game.drawHeight*0.18518518518518518518518518518519));
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Wave Game: B4&Aftr.io", 75, 100);
+			g.drawString("Wave Game: B4&Aftr.io", (int) (Game.drawWidth*0.0390625), (int) (Game.drawHeight*0.09259259259259259259259259259259));
 
 			g.setColor(Color.white);
-			g.drawRect(1050, 300, 350, 400);
+			g.drawRect((int) (Game.drawWidth*0.546875), (int) (Game.drawHeight*0.27777777777777777777777777777778), (int) (Game.drawWidth*0.18229166666666666666666666666667), (int) (Game.drawHeight*0.37037037037037037037037037037037));
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawString("Waves",1130, 510);
+			g.drawString("Waves", (int) (Game.drawWidth*0.58854166666666666666666666666667), (int) (Game.drawHeight*0.47222222222222222222222222222222));
 			
 			g.setColor(Color.white);
-			g.drawRect(1450, 300, 350, 400);
+			g.drawRect((int) (Game.drawWidth*0.75520833333333333333333333333333), (int) (Game.drawHeight*0.27777777777777777777777777777778), (int) (Game.drawWidth*0.18229166666666666666666666666667), (int) (Game.drawHeight*0.37037037037037037037037037037037));
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawString("Easy Mode",1470, 510);
+			g.drawString("Easy Mode", (int) (Game.drawWidth*0.765625), (int) (Game.drawHeight*0.47222222222222222222222222222222));
 			
 			g.setColor(Color.white);
-			g.drawRect(1050, 735, 750, 250);
+			g.drawRect((int) (Game.drawWidth*0.546875), (int) (Game.drawHeight*0.68055555555555555555555555555556), (int) (Game.drawWidth*0.390625), (int) (Game.drawHeight*0.23148148148148148148148148148148));
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawString("Leaderboard",1250, 900);
+			g.drawString("Leaderboard", (int) (Game.drawWidth*0.65104166666666666666666666666667), (int) (Game.drawHeight*0.83333333333333333333333333333333));
 			
 
 			/*g.setColor(Color.white);
@@ -170,96 +170,102 @@ public class Menu {
 
 
 			g.setColor(Color.white);
-			g.drawRect(80, 135, 850, 250);
+			g.drawRect((int) (Game.drawWidth*0.04166666666666666666666666666667), (int) (Game.drawHeight*0.125), (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.23148148148148148148148148148148));
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 400, 280);
+			g.drawString("Help", (int) (Game.drawWidth*0.20833333333333333333333333333333), (int) (Game.drawHeight*0.25925925925925925925925925925926));
 
 			g.setColor(Color.white);
-			g.drawRect(80, 435, 850, 250);
+			g.drawRect((int) (Game.drawWidth*0.04166666666666666666666666666667), (int) (Game.drawHeight*0.40277777777777777777777777777778), (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.23148148148148148148148148148148));
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Credits", 340, 600);
+			g.drawString("Credits", (int) (Game.drawWidth*0.17708333333333333333333333333333), (int) (Game.drawHeight*0.55555555555555555555555555555556));
 
 			g.setColor(Color.white);
-			g.drawRect(80, 735, 850, 250);
+			g.drawRect((int) (Game.drawWidth*0.04166666666666666666666666666667), (int) (Game.drawHeight*0.68055555555555555555555555555556), (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.23148148148148148148148148148148));
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Quit", 400, 900);
+			g.drawString("Quit", (int) (Game.drawWidth*0.20833333333333333333333333333333), (int) (Game.drawHeight*0.83333333333333333333333333333333));
 		} else if (game.gameState == STATE.Help) { // if the user clicks on "help"
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 900, 70);
+			g.drawString("Help", (int) (Game.drawWidth*0.46875), (int) (Game.drawHeight*0.06481481481481481481481481481481));
 
 			g.setFont(font2);
-			g.drawString("Waves: Simply use Arrow keys or WASD to move and avoid enemies.", 40, 200);
-			g.drawString("One you avoid them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 240);
+			g.drawString("Waves: Simply use Arrow keys or WASD to move and avoid enemies.", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("One you avoid them long enough, a new batch will spawn in! Defeat each boss to win!", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.125));
 			
-			g.drawString("Press P to pause and un-pause", 40, 300);
-			g.drawString("Press Enter to use abilities when they have been equipped", 40, 340);
+			g.drawString("Press P to pause and un-pause", (int) (Game.drawWidth*0.02083333333333333333333333333333), 300);
+			g.drawString("Press Enter to use abilities when they have been equipped", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.17708333333333333333333333333333));
 			
-			g.drawString("Click Next to see Enemy and Boss Summeries", 40, 800);
+			g.drawString("Click Next to see Enemy and Boss Summeries", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.41666666666666666666666666666667));
 
 			g.setFont(font2);
 			g.setColor(Color.white);
 			
-			g.drawRect(1600, 870, 200, 65);
-			g.drawString("Next", 1650, 910);
+			g.drawRect((int) (Game.drawWidth*0.83333333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.06018518518518518518518518518519));
+			g.drawString("Next", (int) (Game.drawWidth*0.859375), (int) (Game.drawHeight*0.84259259259259259259259259259259));
 			
-			g.drawRect(850, 870, 200, 64);
-			g.drawString("Main", 920, 910);
+			g.drawRect((int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926));
+			g.drawString("Main", (int) (Game.drawWidth*0.47916666666666666666666666666667), (int) (Game.drawHeight*0.84259259259259259259259259259259));
 		} else if (game.gameState == STATE.Help2){ //second help page
 			
 			Font font = new Font("impact", 1, 50);
 			Font font2 = new Font("impact", 1, 30);
 			
+			//(int) (Game.drawWidth*)
+			//(int) (Game.drawHeight*)
+			
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Different Enemies", 800, 70);
+			g.drawString("Different Enemies", (int) (Game.drawWidth*0.41666666666666666666666666666667), (int) (Game.drawHeight*0.03645833333333333333333333333333));
 			
 			
 			g.setFont(font2);
-			g.drawString("1. Green. These will", 40, 200);
-			g.drawString("follow you where ever", 40, 240);
-			g.drawString("you are on screen.", 40, 280);
+			g.drawString("1. Green. These will", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("follow you where ever", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.125));
+			g.drawString("you are on screen.", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
-			g.drawString("2. Red. These bounce", 400, 200);
-			g.drawString("of the walls at a", 400, 240);
-			g.drawString("45 degree angle", 400, 280);
+			g.drawString("2. Red. These bounce", (int) (Game.drawWidth*0.20833333333333333333333333333333), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("of the walls at a", (int) (Game.drawWidth*0.20833333333333333333333333333333), (int) (Game.drawHeight*0.125));
+			g.drawString("45 degree angle", (int) (Game.drawWidth*0.20833333333333333333333333333333), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
-			g.drawString("3. Cyan. These also", 750, 200);
-			g.drawString("bounce of walls but at", 750, 240);
-			g.drawString("a shallow angle", 750, 280);
+			g.drawString("3. Cyan. These also", (int) (Game.drawWidth*0.390625), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("bounce of walls but at", (int) (Game.drawWidth*0.390625), (int) (Game.drawHeight*0.125));
+			g.drawString("a shallow angle", (int) (Game.drawWidth*0.390625), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
-			g.drawString("4. Yellow. These squares", 1100, 200);
-			g.drawString("shoot little bullets at", 1100, 240);
-			g.drawString("you to dodge", 1100, 280);
+			g.drawString("4. Yellow. These squares", (int) (Game.drawWidth*0.57291666666666666666666666666667), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("shoot little bullets at", (int) (Game.drawWidth*0.57291666666666666666666666666667), (int) (Game.drawHeight*0.125));
+			g.drawString("you to dodge", (int) (Game.drawWidth*0.57291666666666666666666666666667), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
 			
-			g.drawString("5. Burst. Warning flashes", 1500, 200);
-			g.drawString("will appear from the side", 1500, 240);
-			g.drawString("they will jump out from", 1500, 280);
+			g.drawString("5. Burst. Warning flashes", (int) (Game.drawWidth*0.78125), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("will appear from the side", (int) (Game.drawWidth*0.78125), (int) (Game.drawHeight*0.125));
+			g.drawString("they will jump out from", (int) (Game.drawWidth*0.78125), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawRect(100, 870, 200, 64);
-			g.drawString("Back", 150, 910);
+			g.drawRect((int) (Game.drawWidth*0.05208333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926));
+			g.drawString("Back", (int) (Game.drawWidth*0.078125), (int) (Game.drawHeight*0.84259259259259259259259259259259));
 			
-			g.drawRect(850, 870, 200, 64);
-			g.drawString("Main", 920, 910);
+			//(int) (Game.drawWidth*)
+			//(int) (Game.drawHeight*)
 			
-			g.drawRect(1600, 870, 200, 65);
-			g.drawString("Next", 1650, 910);
+			g.drawRect((int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926));
+			g.drawString("Main", (int) (Game.drawWidth*0.47916666666666666666666666666667), (int) (Game.drawHeight*0.84259259259259259259259259259259));
+			
+			g.drawRect((int) (Game.drawWidth*0.83333333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.06018518518518518518518518518519));
+			g.drawString("Next", (int) (Game.drawWidth*0.859375), (int) (Game.drawHeight*0.84259259259259259259259259259259));
 			
 			//images
-			g.drawImage(enemy1Img, 100, 340, 250, 250, null);
-			g.drawImage(enemy2Img, 400, 340, 250, 250, null);
-			g.drawImage(enemy3Img, 750, 340, 250, 250, null);
-			g.drawImage(enemy4Img, 1100, 340, 250, 250, null);
-			g.drawImage(enemy5Img, 1500, 340, 300, 250, null);
+			g.drawImage(enemy1Img, (int) (Game.drawWidth*0.05208333333333333333333333333333), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.13020833333333333333333333333333), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
+			g.drawImage(enemy2Img, (int) (Game.drawWidth*0.20833333333333333333333333333333), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.13020833333333333333333333333333), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
+			g.drawImage(enemy3Img, (int) (Game.drawWidth*0.390625), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.13020833333333333333333333333333), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
+			g.drawImage(enemy4Img, (int) (Game.drawWidth*0.57291666666666666666666666666667), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.13020833333333333333333333333333), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
+			g.drawImage(enemy5Img, (int) (Game.drawWidth*0.78125), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.15625), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
 			
 			
 			
@@ -270,29 +276,32 @@ public class Menu {
 			
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("The Bosses", 830, 70);
+			g.drawString("The Bosses", (int) (Game.drawWidth*0.43229166666666666666666666666667), (int) (Game.drawHeight*0.03645833333333333333333333333333));
 			
 			
 			g.setFont(font2);
-			g.drawString("The Red Boss. Dodge the", 40, 200);
-			g.drawString("explosive bullets that he", 40, 240);
-			g.drawString("throws and stay below the line.", 40, 280);
+			g.drawString("The Red Boss. Dodge the", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("explosive bullets that he", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.125));
+			g.drawString("throws and stay below the line.", (int) (Game.drawWidth*0.02083333333333333333333333333333), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
-			g.drawImage(boss1Img, 100, 340, 250, 250, null);
+			g.drawImage(boss1Img, (int) (Game.drawWidth*0.05208333333333333333333333333333), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.13020833333333333333333333333333), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
 			
-			g.drawString("The Green Eye Boss. Each", 600, 200);
-			g.drawString("moves differently so keep", 600, 240);
-			g.drawString("moving and stay alert!", 600, 280);
+			g.drawString("The Green Eye Boss. Each", (int) (Game.drawWidth*0.3125), (int) (Game.drawHeight*0.10416666666666666666666666666667));
+			g.drawString("moves differently so keep", (int) (Game.drawWidth*0.3125), (int) (Game.drawHeight*0.125));
+			g.drawString("moving and stay alert!", (int) (Game.drawWidth*0.3125), (int) (Game.drawHeight*0.14583333333333333333333333333333));
 			
-			g.drawImage(boss2Img, 600, 340, 250, 250, null);
+			g.drawImage(boss2Img, (int) (Game.drawWidth*0.3125), (int) (Game.drawHeight*0.17708333333333333333333333333333), (int) (Game.drawWidth*0.13020833333333333333333333333333), (int) (Game.drawHeight*0.13020833333333333333333333333333), null);
+
+			//(int) (Game.drawWidth*)
+			//(int) (Game.drawHeight*)
 			
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawRect(100, 870, 200, 64);
-			g.drawString("Back", 150, 910);
+			g.drawRect((int) (Game.drawWidth*0.05208333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926));
+			g.drawString("Back", (int) (Game.drawWidth*0.078125), (int) (Game.drawHeight*0.84259259259259259259259259259259));
 			
-			g.drawRect(850, 870, 200, 64);
-			g.drawString("Main", 920, 910);
+			g.drawRect((int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926));
+			g.drawString("Main", (int) (Game.drawWidth*0.47916666666666666666666666666667), (int) (Game.drawHeight*0.84259259259259259259259259259259));
 
 		}
 	}

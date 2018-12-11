@@ -44,9 +44,9 @@ public class MouseListener extends MouseAdapter {
 	}
 
 	public void mousePressed(MouseEvent e) {
-		int mx = (int) (e.getX() / Game.scaleFactor);
-		int my = (int) (e.getY() / Game.scaleFactor);
-		
+		int mx = (int) (e.getX()*1.5);
+		int my = (int) (e.getY()*1.5);
+		System.out.println(mx + "     " + my);
 		//game.socket.emit("getBoard");
 
 		if (game.gameState == STATE.GameOver) { //geting out of the game when game is over
@@ -121,7 +121,7 @@ public class MouseListener extends MouseAdapter {
 		}
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
-			if (mouseOver(mx, my, 1050, 300, 350, 400)) {
+			if (mouseOver(mx, my, (int) (Game.drawWidth*0.546875), (int) (Game.drawHeight*0.27777777777777777777777777777778), (int) (Game.drawWidth*0.18229166666666666666666666666667), (int) (Game.drawHeight*0.37037037037037037037037037037037))) {
 				handler.object.clear();
 				game.gameState = STATE.Game;
 				
@@ -134,22 +134,22 @@ public class MouseListener extends MouseAdapter {
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
 			}
-			else if (mouseOver(mx, my, 1450, 300, 350, 400)) {
+			else if (mouseOver(mx, my, (int) (Game.drawWidth*0.75520833333333333333333333333333), (int) (Game.drawHeight*0.27777777777777777777777777777778), (int) (Game.drawWidth*0.18229166666666666666666666666667), (int) (Game.drawHeight*0.37037037037037037037037037037037))) {
 				handler.object.clear();
 				game.gameState = STATE.GameEasy;
 
 				handler.addObject(player);
 			}
 			// Help Button
-			else if (mouseOver(mx, my, 80, 135, 850, 250)) {
+			else if (mouseOver(mx, my, (int) (Game.drawWidth*0.04166666666666666666666666666667), (int) (Game.drawHeight*0.125), (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.23148148148148148148148148148148))) {
 				game.gameState = STATE.Help;
 			}
-			else if (mouseOver(mx,my,1050, 735, 750, 250)){
+			else if (mouseOver(mx,my, (int) (Game.drawWidth*0.546875), (int) (Game.drawHeight*0.68055555555555555555555555555556), (int) (Game.drawWidth*0.390625), (int) (Game.drawHeight*0.23148148148148148148148148148148))){
 				game.gameState = STATE.Leaderboard;
 			}
 			
 			// Credits
-			else if (mouseOver(mx, my, 80, 435, 850, 250)) {
+			else if (mouseOver(mx, my, (int) (Game.drawWidth*0.04166666666666666666666666666667), (int) (Game.drawHeight*0.40277777777777777777777777777778), (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.23148148148148148148148148148148))) {
 				JOptionPane.showMessageDialog(game,
 						"Made by Brandon Loehle for his "
 								+ "final project in AP Computer Science senior year, 2015 - 2016."
@@ -157,18 +157,18 @@ public class MouseListener extends MouseAdapter {
 								+ " it is 100% playable, enjoy!");
 			}
 			// Quit Button
-			else if (mouseOver(mx, my, 80, 735, 850, 250)) {
+			else if (mouseOver(mx, my, (int) (Game.drawWidth*0.04166666666666666666666666666667), (int) (Game.drawHeight*0.68055555555555555555555555555556), (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.23148148148148148148148148148148))) {
 				System.exit(1);
 			}
 		}
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
-			if (mouseOver(mx, my, 850, 870, 200, 64)) {
+			if (mouseOver(mx, my, (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926))) {
 				game.gameState = STATE.Menu;
 				return;
 			}
 			
-			if (mouseOver(mx, my, 1600, 870, 200, 65)){
+			if (mouseOver(mx, my, (int) (Game.drawWidth*0.83333333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.06018518518518518518518518518519))){
 				game.gameState = STATE.Help2;
 			}
 		}
@@ -176,15 +176,18 @@ public class MouseListener extends MouseAdapter {
 		//back button for Second help screen to first help screen
 		else if (game.gameState == STATE.Help2){
 			
-			if(mouseOver(mx, my, 100, 870, 200, 64)){
+			//(int) (Game.drawWidth*), (int) (Game.drawHeight*)
+			//(int) (Game.drawHeight*)
+			
+			if(mouseOver(mx, my, (int) (Game.drawWidth*0.05208333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926))){
 				game.gameState = STATE.Help;
 			}
 			
-			if(mouseOver(mx, my, 850, 870, 200, 64)){
+			if(mouseOver(mx, my, (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926))){
 				game.gameState = STATE.Menu;
 			}
 			
-			if(mouseOver(mx, my, 1600, 870, 200, 65)){
+			if(mouseOver(mx, my, (int) (Game.drawWidth*0.83333333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.06018518518518518518518518518519))){
 				game.gameState = STATE.Help3;
 			}
 			
@@ -192,11 +195,11 @@ public class MouseListener extends MouseAdapter {
 		
 		//Buttons for the third screen
 		else if (game.gameState == STATE.Help3){
-			if(mouseOver(mx, my, 100, 870, 200, 64)){
+			if(mouseOver(mx, my, (int) (Game.drawWidth*0.05208333333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926))){
 				game.gameState = STATE.Help2;
 			}
 			
-			if(mouseOver(mx, my, 850, 870, 200, 64)){
+			if(mouseOver(mx, my, (int) (Game.drawWidth*0.44270833333333333333333333333333), (int) (Game.drawHeight*0.80555555555555555555555555555556), (int) (Game.drawWidth*0.10416666666666666666666666666667), (int) (Game.drawHeight*0.05925925925925925925925925925926))){
 				game.gameState = STATE.Menu;
 			}
 			

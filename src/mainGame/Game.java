@@ -2,11 +2,13 @@ package mainGame;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.DisplayMode;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,8 +38,9 @@ import io.socket.SocketIOException;
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
-	public static final int WIDTH = 1920, HEIGHT = 1080;
-	public static final int drawWidth = 1280, drawHeight = 720;
+	public static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	public static final int WIDTH = (int) (screenSize.getWidth()*1.5), HEIGHT = (int) (screenSize.getHeight()*1.5);
+	public static final int drawWidth = (int) (screenSize.width*1.5), drawHeight = (int) (screenSize.height*1.5);
 	public static double scaleFactor;
 	private Thread thread;
 	private boolean running = false;
@@ -89,7 +92,7 @@ public class Game extends Canvas implements Runnable {
 	 */
 
 	public Game() throws MalformedURLException {
-
+		System.out.println(drawWidth + "    " + drawHeight);
 		scaleFactor = (double) drawWidth / (double) WIDTH;
 		
 		this.readFromSavedGameFile("gameSavesFile.txt");
@@ -101,7 +104,7 @@ public class Game extends Canvas implements Runnable {
 		spawner2 = new Spawn10to20(this.handler, this.hud, this.spawner, this);
 		menu = new Menu(this, this.handler, this.hud, this.spawner);
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
-		player = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler, this.hud, this);
+		player = new Player(drawWidth / 2 - 32, drawHeight / 2 - 32, ID.Player, handler, this.hud, this);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawnerE, this.spawner,
 				this.spawner2);
 		gameOver = new GameOver(this, this.handler, this.hud);
@@ -116,7 +119,8 @@ public class Game extends Canvas implements Runnable {
 		menuMIDIPlayer = new Midi();
 		bossMIDIPlayer = new Midi();
 		upgradeMidiPlayer = new Midi();
-		new Window((int) drawWidth, (int) drawHeight, "Wave Game ", this);
+		System.out.println("HKHK  " + (drawWidth*((0.5625))));
+		new Window((int) (drawWidth/1.5), (int) (drawHeight/1.5), "Wave Game ", this);
 		
 		
 		socket = new SocketIO("http://tubbschat.com:3000/");
@@ -455,8 +459,8 @@ public class Game extends Canvas implements Runnable {
 		Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 
 		///////// Draw things bellow this/////////////
-		g.scale(scaleFactor, scaleFactor);
-
+		//g.scale((double) drawHeight / (double) drawWidth, (double) drawHeight / (double) drawWidth);
+		g.scale(0.66666666666666666666666666666667, 0.66666666666666666666666666666667);
 		g.setColor(Color.black);
 		g.fillRect(0, 0, (int) WIDTH, (int) HEIGHT);
 

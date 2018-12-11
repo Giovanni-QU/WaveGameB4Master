@@ -577,7 +577,7 @@ public class Spawn1to10 {
 				spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a second
 			}
 
-			//This code is inconsistent with the code
+			//This code was inconsistent with the code
 			//that loads the rest of the enemies
 //			LevelText welcome10 = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, ("Level " + hud.getLevel()),
 //						ID.Levels1to10Text,handler);

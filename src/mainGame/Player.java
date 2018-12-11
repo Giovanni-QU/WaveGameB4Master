@@ -50,8 +50,8 @@ public class Player extends GameObject {
 	public void tick() throws JSONException {
 		this.x += velX;
 		this.y += velY;
-		x = Game.clamp(x, 0, Game.WIDTH - 38);
-		y = Game.clamp(y, 0, Game.HEIGHT - 60);
+		x = Game.clamp(x, 0, Game.WIDTH - 56);
+		y = Game.clamp(y, 0, Game.HEIGHT - 89);
 		// add the trail that follows it
 		handler.addObject(new Trail(x, y, ID.Trail, Color.white, playerWidth, playerHeight, 0.05, this.handler));
 		collision();
@@ -147,5 +147,21 @@ public class Player extends GameObject {
 	public void setPlayerSize(int size) {
 		this.playerWidth = size;
 		this.playerHeight = size;
+	}
+	
+	public double getX() {
+		return (int) this.x;
+	}
+	
+	public double getY() {
+		return (int) this.y;
+	}
+	
+	public void setX(double newX) {
+		this.x = newX;
+	}
+	
+	public void setY(double newY) {
+		this.y = newY;
 	}
 }
